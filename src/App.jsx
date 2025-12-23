@@ -1,10 +1,12 @@
-import './App.css'
+import Headers from "./Componets/Header";
+import Footer from "./Componets/Footer";
 
 function App() {
 
   return (
     <>
-      
+    <Headers/>
+    <Footer/>
     </>
   )
 }
