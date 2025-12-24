@@ -5,3 +5,34 @@
     padding: 0px;
     font-family: "Playfair Display", serif;
 }
+
+/* Background Images */
+.bgimg1{
+    background-image: url('src/assets/image/imgi_141_banner-2.png');
+    height: 400px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bgimg2{
+    background-image: url('src/assets/image/imgi_9_grid-three-1.png');
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
