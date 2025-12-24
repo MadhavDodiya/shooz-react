@@ -3,9 +3,9 @@ import { Outlet, Link } from "react-router-dom";
 function Footer() {
   return (
     <>
-    {/* <footer>
+    <footer>
       <p>© 2025 My Website</p>
-    </footer> */}
+    </footer>
     </>
   );
 }

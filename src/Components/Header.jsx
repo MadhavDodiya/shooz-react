@@ -4,6 +4,8 @@ import { Outlet, Link } from "react-router-dom";
 export default function Header() {
   return (
     <>
+    <Header>
+
     <div className="relative overflow-hidden bg-red-400 text-white text-sm">
       {/* Marquee Wrapper */}
       <div className="flex overflow-hidden">
@@ -109,6 +111,7 @@ export default function Header() {
         </ul>
       </div>
     </nav>
+    </Header>
 
     </>
   );
