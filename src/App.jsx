@@ -1,6 +1,6 @@
-import Headers from "./Componets/Header";
+import Header from "./Componets/Header";
 import Footer from "./Componets/Footer";
-import Home from "./Componets/Home";
+import Home from "./Pages/Home";
 
 function App() {
 
