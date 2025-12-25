@@ -23,12 +23,17 @@
     menu.classList.toggle("hidden");
     });
 
+    // Product grid tab
     const tabs = document.querySelectorAll(".tab-btn");
+    const contents = document.querySelectorAll(".tab-content");
 
     tabs.forEach(tab => {
       tab.addEventListener("click", () => {
-        tabs.forEach(t => t.classList.remove("active"));
-        tab.classList.add("active");
+        tabs.forEach(t => t.classList.remove("border-b-2", "border-black"));
+        tab.classList.add("border-b-2", "border-black");
+
+        contents.forEach(c => c.classList.add("hidden"));
+        document.getElementById(tab.dataset.tab).classList.remove("hidden");
       });
     });
     </script>
