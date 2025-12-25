@@ -1,63 +1,112 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
+
 * {
-    margin: 0px;
-    padding: 0px;
-    font-family: "Playfair Display", serif;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Playfair Display", serif;
 }
 
 /* Background Images */
-.bgimg1{
-    background-image: url('src/assets/image/imgi_141_banner-2.png');
-    height: 400px;
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.bgimg1 {
+  background-image: url('src/assets/image/imgi_141_banner-2.png');
+  height: 400px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.bgimg2{
-    background-image: url('src/assets/image/imgi_9_grid-three-1.png');
-    height: 300px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.bgimg2 {
+  background-image: url('src/assets/image/imgi_9_grid-three-1.png');
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.bgimg3{
-    background-image: url('src/assets/image/imgi_10_grid-three-3.png');
-    height: 300px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.bgimg3 {
+  background-image: url('src/assets/image/imgi_10_grid-three-3.png');
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.bgimg4{
-    background-image: url('src/assets/image/imgi_11_grid-three-2.png');
-    height: 300px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.bgimg4 {
+  background-image: url('src/assets/image/imgi_11_grid-three-2.png');
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.bgimg5{
-    background-image: url('src/assets/image/imgi_143_wide-banner.png');
-    height: 400px;
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.bgimg5 {
+  background-image: url('src/assets/image/imgi_143_wide-banner.png');
+  height: 400px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+.bgimg6 {
+  background-image: url('src/assets/image/imgi_31_col-5.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bgimg6:hover {
+  scale: (1.2);
+}
+
+.bgimg7 {
+  background-image: url('src/assets/image/imgi_143_wide-banner.png');
+  height: 400px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bgimg8 {
+  background-image: url('src/assets/image/imgi_143_wide-banner.png');
+  height: 400px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bgimg9 {
+  background-image: url('src/assets/image/imgi_143_wide-banner.png');
+  height: 400px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /* Height */
-.h1{
-    height: 100%;
-    width: 100%;
+.h1 {
+  height: 100%;
+  width: 100%;
 }
+
+/* Box */
+.box1 {
+  height: 250px;
+  width: 250px;
+}
+
+
 
 @keyframes marquee {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-100%);
   }

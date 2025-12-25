@@ -49,7 +49,7 @@ function Home() {
 
             <div className="container-fluid text-center text-gray-500">
                 <p>The latest trends in athletic footwear</p>
-                <p className='text-5xl text-black font-semibold py-3'>Sneakers & Kicks</p>
+                <p className='text-4xl text-black font-semibold py-3'>Sneakers & Kicks</p>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 py-12">
@@ -236,7 +236,66 @@ function Home() {
                 </div>
             </div>
 
-            
+            <div className="relative overflow-hidden bg-red-400 text-white text-sm">
+                {/* Marquee Wrapper */}
+                <div className="flex overflow-hidden">
+                    <div className="flex min-w-full animate-marquee gap-20 px-24 py-2">
+                        <span>
+                            Enjoy 20% off your entire order with the code <b>SHOEFRESH20</b>.
+                        </span>
+                        <span>
+                            Get 15% off your first purchase when you sign up for our newsletter.
+                        </span>
+                    </div>
+                    {/* Duplicate for seamless loop */}
+                    <div className="flex min-w-full animate-marquee gap-20 px-24 py-2">
+                        <span>
+                            Enjoy 20% off your entire order with the code <b>SHOEFRESH20</b>.
+                        </span>
+                        <span>
+                            Get 15% off your first purchase when you sign up for our newsletter.
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div className="container-fluid text-center text-gray-500 my-5">
+                <p className="text-[12px]">Stylish and comfortable for every season</p>
+                <p className='text-4xl text-black font-semibold py-3'>Boots & Booties</p>
+                <p className="text-[12px]">Check out our collection of the top New Products <br /> that encourage conversion.</p>
+            </div>
+
+            <div className="container-fluid">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12 col-sm-6 col-lg-3 d-flex justify-content-center img-card-wrapper position-relative " style={{ cursor: "pointer" }}>
+                            <div className="img-card">
+                                <img src="src/assets/image/imgi_29_col-1.png" className="img-fluid" alt="" />
+                            </div>
+                            <button className="absolute text-black bg-gray-50 hover:bg-pink-500 hover:text-gray-50 transition-all py-1 px-3 mt-[180px]">Athletic Footwear 8</button>
+                        </div>
+                        <div className="col-12 col-sm-6 col-lg-3 d-flex justify-content-center img-card-wrapper position-relative " style={{ cursor: "pointer" }}>
+                            <div className="img-card">
+                                <img src="src/assets/image/imgi_29_col-1.png" className="img-fluid" alt="" />
+                            </div>
+                            <button className="absolute text-black bg-gray-50 hover:bg-pink-500 hover:text-gray-50 transition-all py-1 px-5 mt-[180px]">shop now</button>
+                        </div>
+                        <div className="col-12 col-sm-6 col-lg-3 d-flex justify-content-center img-card-wrapper position-relative " style={{ cursor: "pointer" }}>
+                            <div className="img-card">
+                                <img src="src/assets/image/imgi_29_col-1.png" className="img-fluid" alt="" />
+                            </div>
+                            <button className="absolute text-black bg-gray-50 hover:bg-pink-500 hover:text-gray-50 transition-all py-1 px-5 mt-[180px]">shop now</button>
+                        </div>
+                        <div className="col-12 col-sm-6 col-lg-3 d-flex justify-content-center img-card-wrapper position-relative " style={{ cursor: "pointer" }}>
+                            <div className="img-card">
+                                <img src="src/assets/image/imgi_29_col-1.png" className="img-fluid" alt="" />
+                            </div>
+                            <button className="absolute text-black bg-gray-50 hover:bg-pink-500 hover:text-gray-50 transition-all py-1 px-5 mt-[180px]">shop now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
         </>
     );
