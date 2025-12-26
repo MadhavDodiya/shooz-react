@@ -339,7 +339,7 @@ function Home() {
                     <div className="row">
                         <div className="col-lg-6">
                             <div className="container image4">
-                                <div className="container pt-[150px] pb-5">
+                                <div className="container pt-[100px] pb-5">
                                     <span className="text-white text-[14px] py-2">COMFORT MEETS FASHION</span>
                                     <p className="text-white text-4xl py-3">Discover shoes <br />that look great</p>
                                     <button className="text-white border-b-2 px-2">Shop Now</button>
@@ -348,7 +348,7 @@ function Home() {
                         </div>
                         <div className="col-lg-6">
                             <div className="container image5">
-                                <div className="container pt-[150px] pb-5">
+                                <div className="container pt-[100px] pb-5">
                                     <span className="text-white text-[14px] py-2">COMFORT MEETS FASHION</span>
                                     <p className="text-white text-4xl py-3">Discover shoes <br />that look great</p>
                                     <button className="text-white border-b-2 px-2">Shop Now</button>
@@ -358,6 +358,16 @@ function Home() {
                     </div>
                 </div>
             </div>
+
+            <div className="container-fluid my-5">
+                <div className="container text-center py-5">
+                    <p className="text-[11px] text-gray-500">Season's End Sale</p>
+                    <p className="text-[50px] font-semibold">Huge discounts on last season's styles</p>
+                    <span className="text-[12px] text-gray-500">Himenaeos nascetur tristique consequat mus ad. <br /> Accumsan fringilla in laoreet id bibendum et.</span>
+                </div>
+            </div>
+
+            
         </>
     );
 }
