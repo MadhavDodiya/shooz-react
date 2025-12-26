@@ -389,7 +389,7 @@ function Home() {
                                         <img src="src/assets/image/imgi_56_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" className="img-fluid" alt="" />
                                     </div>
                                     <div className="col-lg-8">
-                                        <span className="hover:text-pink-500">Classic white tennis sneakers</span>
+                                        <span className="hover:text-pink-500">Waterproof Hiking Boots</span>
                                         <p>$ 25.00</p>
                                     </div><hr className="bg-gray-500 my-3" />
                                 </div>
@@ -401,7 +401,7 @@ function Home() {
                                         <img src="src/assets/image/imgi_56_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" className="img-fluid" alt="" />
                                     </div>
                                     <div className="col-lg-8">
-                                        <span className="hover:text-pink-500">Classic white tennis sneakers</span>
+                                        <span className="hover:text-pink-500">Classic leather sneakers</span>
                                         <p>$ 25.00</p>
                                     </div>
                                 </div>
@@ -427,7 +427,7 @@ function Home() {
                                         <img src="src/assets/image/imgi_56_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" className="img-fluid" alt="" />
                                     </div>
                                     <div className="col-lg-8">
-                                        <span className="hover:text-pink-500">Classic white tennis sneakers</span>
+                                        <span className="hover:text-pink-500">Waterproof Hiking Boots</span>
                                         <p>$ 25.00</p>
                                     </div><hr className="bg-gray-500 my-3" />
                                 </div>
@@ -439,7 +439,7 @@ function Home() {
                                         <img src="src/assets/image/imgi_56_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" className="img-fluid" alt="" />
                                     </div>
                                     <div className="col-lg-8">
-                                        <span className="hover:text-pink-500">Classic white tennis sneakers</span>
+                                        <span className="hover:text-pink-500">Classic leather sneakers</span>
                                         <p>$ 25.00</p>
                                     </div>
                                 </div>
@@ -465,7 +465,7 @@ function Home() {
                                         <img src="src/assets/image/imgi_56_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" className="img-fluid" alt="" />
                                     </div>
                                     <div className="col-lg-8">
-                                        <span className="hover:text-pink-500">Classic white tennis sneakers</span>
+                                        <span className="hover:text-pink-500">Waterproof Hiking Boots</span>
                                         <p>$ 25.00</p>
                                     </div><hr className="bg-gray-500 my-3" />
                                 </div>
@@ -477,7 +477,7 @@ function Home() {
                                         <img src="src/assets/image/imgi_56_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" className="img-fluid" alt="" />
                                     </div>
                                     <div className="col-lg-8">
-                                        <span className="hover:text-pink-500">Classic white tennis sneakers</span>
+                                        <span className="hover:text-pink-500">Classic leather sneakers</span>
                                         <p>$ 25.00</p>
                                     </div>
                                 </div>
