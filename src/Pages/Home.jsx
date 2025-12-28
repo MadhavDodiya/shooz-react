@@ -6,8 +6,8 @@ function Home() {
             <div className="container-fluid bgimg1">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-6"></div>
-                        <div className="col-lg-6">
+                        <div className="col-md-6"></div>
+                        <div className="col-md-6">
                             <div className="container-fluid py-5">
                                 <p className='text-[15px] py-3 text-white'>ELEVET YOUR LOOK</p>
                                 <h1 className='text-4xl py-2 font-semibold text-white'>Find The Perfect Pair Of Shoes To Complete</h1>
@@ -22,21 +22,21 @@ function Home() {
             <div className="container-fluid py-5">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-4">
+                        <div className="col-md-4">
                             <div className="container bgimg2 py-5">
                                 <p className='text-[12px] font-bold'>TRENDING</p>
                                 <p className='text-3xl font-semibold py-4'>Men <br /> Collection</p>
                                 <button className='text-pink-500 border-b border-pink-500 font-medium'><a href="">SHOP NOW</a></button>
                             </div>
                         </div>
-                        <div className="col-lg-4 ">
+                        <div className="col-md-4 ">
                             <div className="container bgimg3 py-5">
                                 <p className='text-[12px] font-bold'>TRENDING</p>
                                 <p className='text-3xl font-semibold py-4'>Women <br /> Collection</p>
                                 <button className='text-pink-500 border-b border-pink-500 font-medium'><a href="">SHOP NOW</a></button>
                             </div>
                         </div>
-                        <div className="col-lg-4 ">
+                        <div className="col-md-4 ">
                             <div className="container bgimg4 py-5">
                                 <p className='text-[12px] font-bold'>TRENDING</p>
                                 <p className='text-3xl font-semibold py-4'>Kid <br /> Collection</p>
@@ -222,8 +222,8 @@ function Home() {
             <div className="container-fluid bgimg5">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-4"></div>
-                        <div className="col-lg-8">
+                        <div className="col-md-4"></div>
+                        <div className="col-md-8">
                             <div className="container-fluid py-5">
                                 <p className='text-[15px] py-3 text-black float-end'>COMFORT MEETS FASHION</p>
                                 <h1 className='text-4xl py-2 font-semibold text-black float-right'>Discover shoes that look great</h1>
@@ -268,29 +268,29 @@ function Home() {
             <div className="container-fluid my-5">
                 <div className="container">
                     <div className="row">
-                        <div className="col-12 col-sm-6 col-lg-3 d-flex justify-content-center img-card-wrapper position-relative " style={{ cursor: "pointer" }}>
+                        <div className="col-12 col-sm-6 col-md-3 d-flex justify-content-center img-card-wrapper position-relative " style={{ cursor: "pointer" }}>
                             <div className="img-card">
                                 <img src="src/assets/image/imgi_31_col-5.png" className="img-fluid" alt="" />
                             </div>
-                            <button className="absolute text-black bg-gray-50 hover:bg-pink-500 hover:text-gray-50 transition-all py-1 px-3 mt-[180px]">Athletic Footwear 8</button>
+                            <button className="absolute text-black bg-gray-50 hover:bg-pink-500 hover:text-gray-50 transition-all py-2 px-14 bottom-10">Athletic Footwear 8</button>
                         </div>
-                        <div className="col-12 col-sm-6 col-lg-3 d-flex justify-content-center img-card-wrapper position-relative " style={{ cursor: "pointer" }}>
+                        <div className="col-12 col-sm-6 col-md-3 d-flex justify-content-center img-card-wrapper position-relative " style={{ cursor: "pointer" }}>
                             <div className="img-card">
                                 <img src="src/assets/image/imgi_32_col-6.png" className="img-fluid" alt="" />
                             </div>
-                            <button className="absolute text-black bg-gray-50 hover:bg-pink-500 hover:text-gray-50 transition-all py-1 px-3 mt-[180px]">Luxury Leather Shoes 8</button>
+                            <button className="absolute text-black bg-gray-50 hover:bg-pink-500 hover:text-gray-50 transition-all py-2 px-14 bottom-10">Luxury Leather Shoes 8</button>
                         </div>
-                        <div className="col-12 col-sm-6 col-lg-3 d-flex justify-content-center img-card-wrapper position-relative " style={{ cursor: "pointer" }}>
+                        <div className="col-12 col-sm-6 col-md-3 d-flex justify-content-center img-card-wrapper position-relative " style={{ cursor: "pointer" }}>
                             <div className="img-card">
                                 <img src="src/assets/image/imgi_29_col-1.png" className="img-fluid" alt="" />
                             </div>
-                            <button className="absolute text-black bg-gray-50 hover:bg-pink-500 hover:text-gray-50 transition-all py-1 px-3 mt-[180px]">Sustainble Footwear 8</button>
+                            <button className="absolute text-black bg-gray-50 hover:bg-pink-500 hover:text-gray-50 transition-all py-2 px-14 bottom-10">Sustainble Footwear 8</button>
                         </div>
-                        <div className="col-12 col-sm-6 col-lg-3 d-flex justify-content-center img-card-wrapper position-relative " style={{ cursor: "pointer" }}>
+                        <div className="col-12 col-sm-6 col-md-3 d-flex justify-content-center img-card-wrapper position-relative " style={{ cursor: "pointer" }}>
                             <div className="img-card">
                                 <img src="src/assets/image/imgi_30_col-2.png" className="img-fluid" alt="" />
                             </div>
-                            <button className="absolute text-black bg-gray-50 hover:bg-pink-500 hover:text-gray-50 transition-all py-1 px-3 mt-[180px]">Sandles & Slides 8</button>
+                            <button className="absolute text-black bg-gray-50 hover:bg-pink-500 hover:text-gray-50 transition-all py-2 px-14 bottom-10">Sandles & Slides 8</button>
                         </div>
                     </div>
                 </div>
@@ -305,7 +305,7 @@ function Home() {
 
                 <div className="container pb-4">
                     <div className="row">
-                        <div className="col-lg-4">
+                        <div className="col-md-4">
                             <div className="container image1">
                                 <div className="container pt-5">
                                     <span className="text-white text-[14px] py-2">COMFORT MEETS FASHION</span>
@@ -314,7 +314,7 @@ function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-md-4">
                             <div className="container image2">
                                 <div className="container pt-5">
                                     <span className="text-white text-[14px] py-2">COMFORT MEETS FASHION</span>
@@ -323,7 +323,7 @@ function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-md-4">
                             <div className="container image3">
                                 <div className="container pt-5">
                                     <span className="text-white text-[14px] py-2">COMFORT MEETS FASHION</span>
@@ -337,7 +337,7 @@ function Home() {
 
                 <div className="container pb-5 mb-5">
                     <div className="row">
-                        <div className="col-lg-6">
+                        <div className="col-md-6">
                             <div className="container image4">
                                 <div className="container pt-[100px] pb-5">
                                     <span className="text-white text-[14px] py-2">COMFORT MEETS FASHION</span>
@@ -346,7 +346,7 @@ function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-6">
+                        <div className="col-md-6">
                             <div className="container image5">
                                 <div className="container pt-[100px] pb-5">
                                     <span className="text-white text-[14px] py-2">COMFORT MEETS FASHION</span>
@@ -370,13 +370,13 @@ function Home() {
             <div className="container-fluid">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-4">
+                        <div className="col-md-4">
                             <div className="container">
                                 <div className="row">
-                                    <div className="col-lg-4">
+                                    <div className="col-md-4">
                                         <img src="src/assets/image/imgi_56_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" className="img-fluid" alt="" />
                                     </div>
-                                    <div className="col-lg-8">
+                                    <div className="col-md-8">
                                         <span className="hover:text-pink-500">Classic white tennis sneakers</span>
                                         <p>$ 25.00</p>
                                     </div><hr className="bg-gray-500 my-3" />
@@ -385,10 +385,10 @@ function Home() {
 
                             <div className="container">
                                 <div className="row">
-                                    <div className="col-lg-4">
+                                    <div className="col-md-4">
                                         <img src="src/assets/image/imgi_56_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" className="img-fluid" alt="" />
                                     </div>
-                                    <div className="col-lg-8">
+                                    <div className="col-md-8">
                                         <span className="hover:text-pink-500">Waterproof Hiking Boots</span>
                                         <p>$ 25.00</p>
                                     </div><hr className="bg-gray-500 my-3" />
@@ -397,10 +397,10 @@ function Home() {
 
                             <div className="container">
                                 <div className="row">
-                                    <div className="col-lg-4">
+                                    <div className="col-md-4">
                                         <img src="src/assets/image/imgi_56_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" className="img-fluid" alt="" />
                                     </div>
-                                    <div className="col-lg-8">
+                                    <div className="col-md-8">
                                         <span className="hover:text-pink-500">Classic leather sneakers</span>
                                         <p>$ 25.00</p>
                                     </div>
@@ -408,13 +408,13 @@ function Home() {
                             </div>
 
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-md-4">
                             <div className="container">
                                 <div className="row">
-                                    <div className="col-lg-4">
+                                    <div className="col-md-4">
                                         <img src="src/assets/image/imgi_56_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" className="img-fluid" alt="" />
                                     </div>
-                                    <div className="col-lg-8">
+                                    <div className="col-md-8">
                                         <span className="hover:text-pink-500">Classic white tennis sneakers</span>
                                         <p>$ 25.00</p>
                                     </div><hr className="bg-gray-500 my-3" />
@@ -423,10 +423,10 @@ function Home() {
 
                             <div className="container">
                                 <div className="row">
-                                    <div className="col-lg-4">
+                                    <div className="col-md-4">
                                         <img src="src/assets/image/imgi_56_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" className="img-fluid" alt="" />
                                     </div>
-                                    <div className="col-lg-8">
+                                    <div className="col-md-8">
                                         <span className="hover:text-pink-500">Waterproof Hiking Boots</span>
                                         <p>$ 25.00</p>
                                     </div><hr className="bg-gray-500 my-3" />
@@ -435,10 +435,10 @@ function Home() {
 
                             <div className="container">
                                 <div className="row">
-                                    <div className="col-lg-4">
+                                    <div className="col-md-4">
                                         <img src="src/assets/image/imgi_56_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" className="img-fluid" alt="" />
                                     </div>
-                                    <div className="col-lg-8">
+                                    <div className="col-md-8">
                                         <span className="hover:text-pink-500">Classic leather sneakers</span>
                                         <p>$ 25.00</p>
                                     </div>
@@ -446,13 +446,13 @@ function Home() {
                             </div>
 
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-md-4">
                             <div className="container">
                                 <div className="row">
-                                    <div className="col-lg-4">
+                                    <div className="col-md-4">
                                         <img src="src/assets/image/imgi_56_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" className="img-fluid" alt="" />
                                     </div>
-                                    <div className="col-lg-8">
+                                    <div className="col-md-8">
                                         <span className="hover:text-pink-500">Classic white tennis sneakers</span>
                                         <p>$ 25.00</p>
                                     </div><hr className="bg-gray-500 my-3" />
@@ -461,10 +461,10 @@ function Home() {
 
                             <div className="container">
                                 <div className="row">
-                                    <div className="col-lg-4">
+                                    <div className="col-md-4">
                                         <img src="src/assets/image/imgi_56_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" className="img-fluid" alt="" />
                                     </div>
-                                    <div className="col-lg-8">
+                                    <div className="col-md-8">
                                         <span className="hover:text-pink-500">Waterproof Hiking Boots</span>
                                         <p>$ 25.00</p>
                                     </div><hr className="bg-gray-500 my-3" />
@@ -473,17 +473,29 @@ function Home() {
 
                             <div className="container">
                                 <div className="row">
-                                    <div className="col-lg-4">
+                                    <div className="col-md-4">
                                         <img src="src/assets/image/imgi_56_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" className="img-fluid" alt="" />
                                     </div>
-                                    <div className="col-lg-8">
+                                    <div className="col-md-8">
                                         <span className="hover:text-pink-500">Classic leather sneakers</span>
                                         <p>$ 25.00</p>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="container-fluid">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-6">
+                            <div className="container">
+                                
+                            </div>
+                        </div>
+                        <div className="col-md-6"></div>
                     </div>
                 </div>
             </div>
