@@ -143,6 +143,14 @@
 	background-position:center;
   background-size: cover;
 }
+
+/* gradiant-background-color */
+.gcolor{
+  background: linear-gradient(to right, #9b5de5, #f15bb5);
+}
+
+
+
 @keyframes marquee {
   0% {
     transform: translateX(0);

@@ -487,16 +487,37 @@ function Home() {
                 </div>
             </div>
 
-            <div className="container-fluid">
+            <div className="container-fluid mt-20">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6">
                             <div className="container">
-                                
+                                <p className="text-[15px] font-semibold">OUR MOST POPULAR STYLE</p>
+                                <h1 className="text-[50px] font-semibold py-4">Save big on shoes <br /> from last season</h1>
+                                <p className="text-[18px] text-justify">Morbi natoque id finibus natoque sapien turpis elementum maximus. Sociosqu auctor a urna consequat laoreet nisi accumsan magna. Adipiscing vulputate nec euismod, a aliquam enim. Mi facilisi ex est habitant lacus sagittis vitae. <br />
+                                    <br />Molestie dolor mus vitae penatibus sed lectus convallis ut neque. Leo elementum euismod penatibus cras sociosqu aliquet tellus.</p>
+                                <button className="bg-red-500 text-white font-semibold px-16 py-3 my-4">SHOP NOW</button>
                             </div>
                         </div>
-                        <div className="col-md-6"></div>
+                        <div className="col-md-6">
+                            <img src="src/assets/image/imgi_38_video-pic.png" className="img-fluid" alt="" />
+                        </div>
                     </div>
+                </div>
+            </div>
+
+            <div className="container-fluid gcolor py-12 mt-20 mb-20">
+                <div className="container text-center">
+                    <p className="inline pe-36 text-white font-semibold">
+                        Discover Our Stores: Your Local Shoe Haven 
+                    </p>
+                    <button className="bg-blue-500 text-white font-semibold text-[15px] px-5 py-2 mx-12">FIND STORE</button>
+                </div>
+            </div>
+
+            <div className="container-fluid">
+                <div className="container">
+                    
                 </div>
             </div>
         </>
