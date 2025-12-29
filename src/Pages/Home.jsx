@@ -509,19 +509,87 @@ function Home() {
             <div className="container-fluid gcolor py-12 mt-20 mb-20">
                 <div className="container text-center">
                     <p className="inline pe-36 text-white font-semibold">
-                        Discover Our Stores: Your Local Shoe Haven 
+                        Discover Our Stores: Your Local Shoe Haven
                     </p>
                     <button className="bg-blue-500 text-white font-semibold text-[15px] px-5 py-2 mx-12">FIND STORE</button>
                 </div>
             </div>
 
             <div className="container-fluid">
+                <div className="container text-center">
+                    <p className="text-4xl font-semibold">Customer Feedback Highlight</p>
+                    <p className="text-gray-500">Laoreet ridiculus congue magna malesuada <br /> phasellus condimentum taciti mus primis.</p>
+                </div>
+            </div>
+
+            <div className="container-fluid my-10">
                 <div className="container">
-                    
+                    <div className="row">
+                        <div className="col-md-2 mx-4">
+                            <img src="src/assets/image/imgi_39_text-logo-1.png" className="img-fluid" alt="" />
+                        </div>
+                        <div className="col-md-2 mx-4">
+                            <img src="src/assets/image/imgi_39_text-logo-1.png" className="img-fluid" alt="" />
+                        </div>
+                        <div className="col-md-2 mx-4">
+                            <img src="src/assets/image/imgi_39_text-logo-1.png" className="img-fluid" alt="" />
+                        </div>
+                        <div className="col-md-2 mx-4">
+                            <img src="src/assets/image/imgi_39_text-logo-1.png" className="img-fluid" alt="" />
+                        </div>
+                        <div className="col-md-2 mx-4">
+                            <img src="src/assets/image/imgi_39_text-logo-1.png" className="img-fluid" alt="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-2 mx-4">
+                            <img src="src/assets/image/imgi_39_text-logo-1.png" className="img-fluid" alt="" />
+                        </div>
+                        <div className="col-md-2 mx-4">
+                            <img src="src/assets/image/imgi_39_text-logo-1.png" className="img-fluid" alt="" />
+                        </div>
+                        <div className="col-md-2 mx-4">
+                            <img src="src/assets/image/imgi_39_text-logo-1.png" className="img-fluid" alt="" />
+                        </div>
+                        <div className="col-md-2 mx-4">
+                            <img src="src/assets/image/imgi_39_text-logo-1.png" className="img-fluid" alt="" />
+                        </div>
+                        <div className="col-md-2 mx-4">
+                            <img src="src/assets/image/imgi_39_text-logo-1.png" className="img-fluid" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="container-fluid my-20">
+                <div className="container">
+                    <p className="text-gray-500 font-semibold text-[14px]">FROM THE BLOG</p>
+                    <p className="text-5xl font-semibold py-3">Recentley Our Posts</p>
+                    <p>Sit amet conse ctetur adipisicing elit, <br /> sed do eiusmod tempor incididunt ut labore et dolore <br /> magna aliqua.</p>
+                </div>
+            </div>
+
+            <div className="container-fluid">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-6 bgimg">
+                            <img src="src/assets/image/blog-2.png" className="img-fluid" alt="" />
+                        </div>
+
+                        <div className="col-md-6">
+                            <div className="container">
+                                <img src="src/assets/image/blog-1.png" className="float-start h-[150px] px-3 inline w-auto" alt="" />
+                                <p className="px-3 py-5 inline">Oct 28 2024 <i class="fa-regular fa-comment"></i> Comment</p><br />
+                                <p className="ps-3 inline">Eco-Friendly Footwear: Sustainable Style</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
     );
 }
-
 export default Home;

@@ -87,6 +87,10 @@
   background-size: cover;
 }
 
+.bgimg10{
+  background-image: url("");
+}
+
 /* Height */
 .h1 {
   height: 100%;
