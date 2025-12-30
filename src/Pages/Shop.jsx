@@ -92,7 +92,7 @@ export default function Shop() {
             <div className="col-md-2">
               <div className="group relative flex items-center  justify-center overflow-hidden rounded">
                 {/* IMAGE */}
-                <img src="src/assets/image/imgi_58_col-5.png" alt="Athletic Footwear"
+                <img src="src/assets/image/col-4.png" alt="Athletic Footwear"
                   className="h-full object-contain transition-transform duration-300 group-hover:scale-105"/>
                 {/* HOVER MESSAGE */}
                 <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
@@ -106,7 +106,7 @@ export default function Shop() {
             <div className="col-md-2">
               <div className="group relative flex items-center  justify-center overflow-hidden rounded">
                 {/* IMAGE */}
-                <img src="src/assets/image/imgi_58_col-5.png" alt="Athletic Footwear"
+                <img src="src/assets/image/col-6.png" alt="Athletic Footwear"
                   className="h-full object-contain transition-transform duration-300 group-hover:scale-105"/>
                 {/* HOVER MESSAGE */}
                 <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
@@ -120,7 +120,7 @@ export default function Shop() {
             <div className="col-md-2">
               <div className="group relative flex items-center  justify-center overflow-hidden rounded">
                 {/* IMAGE */}
-                <img src="src/assets/image/imgi_58_col-5.png" alt="Athletic Footwear"
+                <img src="src/assets/image/col-2.png" alt="Athletic Footwear"
                   className="h-full object-contain transition-transform duration-300 group-hover:scale-105"/>
                 {/* HOVER MESSAGE */}
                 <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
@@ -134,7 +134,7 @@ export default function Shop() {
             <div className="col-md-2">
               <div className="group relative flex items-center  justify-center overflow-hidden rounded">
                 {/* IMAGE */}
-                <img src="src/assets/image/imgi_58_col-5.png" alt="Athletic Footwear"
+                <img src="src/assets/image/col-3.png" alt="Athletic Footwear"
                   className="h-full object-contain transition-transform duration-300 group-hover:scale-105"/>
                 {/* HOVER MESSAGE */}
                 <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
@@ -148,6 +148,8 @@ export default function Shop() {
           </div>
         </div>
       </div>
+
+
     </>
   );
 }
