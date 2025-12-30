@@ -56,15 +56,15 @@ export default function Header() {
                 </li>
 
                 <li className="flex items-center gap-1 cursor-pointer">
-                  <Link to="">Product <i className="fas fa-chevron-down text-xs"></i></Link>
+                  <Link to="/product">Product <i className="fas fa-chevron-down text-xs"></i></Link>
                 </li>
 
                 <li className="flex items-center gap-1 cursor-pointer">
-                  <Link to="">Product <i className="fas fa-chevron-down text-xs"></i></Link>
+                  <Link to="/blog">Blog <i className="fas fa-chevron-down text-xs"></i></Link>
                 </li>
 
                 <li className="flex items-center gap-1 cursor-pointer">
-                  <Link to="">Product <i className="fas fa-chevron-down text-xs"></i></Link>
+                  <Link to="/pages">Pages <i className="fas fa-chevron-down text-xs"></i></Link>
                 </li>
 
                 <li className="relative">

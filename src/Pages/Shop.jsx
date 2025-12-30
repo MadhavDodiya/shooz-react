@@ -14,11 +14,11 @@ export default function Shop() {
 
   return (
     <>
-    <div className="container-fluid border-b-2">
-      <div className="container my-3">
-        <span className='text-red-500 active:text-red-500'>Home</span><span> / Shop</span>
+      <div className="container-fluid border-b-2">
+        <div className="container my-3">
+          <span className='text-red-500 active:text-red-500'>Home</span><span> / Shop</span>
+        </div>
       </div>
-    </div>
 
       <div className="container-fluid bgimg10">
         <div className="container p-0 bg-[#00000053]">
@@ -26,7 +26,7 @@ export default function Shop() {
         </div>
       </div>
 
-    {/* Category Tabs */}
+      {/* Category Tabs */}
       <div className="w-full border-b border-gray-200 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex overflow-x-auto no-scrollbar">
@@ -35,10 +35,9 @@ export default function Shop() {
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
                 className={`relative whitespace-nowrap px-6 py-4 text-sm font-medium transition
-                  ${
-                    activeTab === cat.id
-                      ? "text-black"
-                      : "text-gray-500 hover:text-black"
+                  ${activeTab === cat.id
+                    ? "text-black"
+                    : "text-gray-500 hover:text-black"
                   }`}
               >
                 {cat.label}{" "}
@@ -74,13 +73,79 @@ export default function Shop() {
 
       <div className="container-fluid">
         <div className="container">
-        <div className="col-md-2">
-          <img src="" alt="" />
-        </div>
-        <div className="col-md-2"></div>
-        <div className="col-md-2"></div>
-        <div className="col-md-2"></div>
-        <div className="col-md-2"></div>
+          <div className="row justify-content-center">
+            <div className="col-md-2">
+              <div className="group relative flex items-center  justify-center overflow-hidden rounded">
+                {/* IMAGE */}
+                <img src="src/assets/image/imgi_58_col-5.png" alt="Athletic Footwear"
+                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105"/>
+                {/* HOVER MESSAGE */}
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
+                 transition-opacity duration-300">
+                  <p className="text-white font-semibold text-center">
+                    Athletic Footwear
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-md-2">
+              <div className="group relative flex items-center  justify-center overflow-hidden rounded">
+                {/* IMAGE */}
+                <img src="src/assets/image/imgi_58_col-5.png" alt="Athletic Footwear"
+                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105"/>
+                {/* HOVER MESSAGE */}
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
+                 transition-opacity duration-300">
+                  <p className="text-white font-semibold text-center">
+                    Athletic Footwear
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-2">
+              <div className="group relative flex items-center  justify-center overflow-hidden rounded">
+                {/* IMAGE */}
+                <img src="src/assets/image/imgi_58_col-5.png" alt="Athletic Footwear"
+                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105"/>
+                {/* HOVER MESSAGE */}
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
+                 transition-opacity duration-300">
+                  <p className="text-white font-semibold text-center">
+                    Athletic Footwear
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-2">
+              <div className="group relative flex items-center  justify-center overflow-hidden rounded">
+                {/* IMAGE */}
+                <img src="src/assets/image/imgi_58_col-5.png" alt="Athletic Footwear"
+                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105"/>
+                {/* HOVER MESSAGE */}
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
+                 transition-opacity duration-300">
+                  <p className="text-white font-semibold text-center">
+                    Athletic Footwear
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-2">
+              <div className="group relative flex items-center  justify-center overflow-hidden rounded">
+                {/* IMAGE */}
+                <img src="src/assets/image/imgi_58_col-5.png" alt="Athletic Footwear"
+                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105"/>
+                {/* HOVER MESSAGE */}
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
+                 transition-opacity duration-300">
+                  <p className="text-white font-semibold text-center">
+                    Athletic Footwear
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
