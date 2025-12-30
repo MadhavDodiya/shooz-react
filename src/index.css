@@ -88,7 +88,13 @@
 }
 
 .bgimg10{
-  background-image: url("");
+  background-image: url("src/assets/image/col-2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 350px;
+  width: 100%;
+  padding: 0px;
 }
 
 /* Height */
@@ -153,6 +159,13 @@
   background: linear-gradient(to right, #9b5de5, #f15bb5);
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 
 @keyframes marquee {

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -48,28 +49,28 @@ export default function Header() {
                 <img src="/src/assets/image/imgi_2_logo.png" alt="" />
               </div>
               <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
-                <li className="text-red-500 border-b-2 border-red-500 pb-1"><a href="#">Home</a></li>
+                <li className="text-red-500 hover:border-red-500 hover:border-b-2 pb-1"><Link to="/">Home</Link></li>
 
                 <li className="flex items-center gap-1 cursor-pointer">
-                  <a href="">Shop <i className="fas fa-chevron-down text-xs"></i></a>
+                  <Link to="/shop" className="hover:text-red-500">Shop <i className="fas fa-chevron-down text-xs"></i></Link>
                 </li>
 
                 <li className="flex items-center gap-1 cursor-pointer">
-                  <a href="">Product <i className="fas fa-chevron-down text-xs"></i></a>
+                  <Link to="">Product <i className="fas fa-chevron-down text-xs"></i></Link>
                 </li>
 
                 <li className="flex items-center gap-1 cursor-pointer">
-                  <a href="">Product <i className="fas fa-chevron-down text-xs"></i></a>
+                  <Link to="">Product <i className="fas fa-chevron-down text-xs"></i></Link>
                 </li>
 
                 <li className="flex items-center gap-1 cursor-pointer">
-                  <a href="">Product <i className="fas fa-chevron-down text-xs"></i></a>
+                  <Link to="">Product <i className="fas fa-chevron-down text-xs"></i></Link>
                 </li>
 
                 <li className="relative">
-                  <a href="">Buy Now</a>
+                  <Link to="">Buy Now</Link>
                   <span className="absolute -top-3 -right-6 bg-green-500 text-white text-xs px-2 rounded-full">
-                    <a href="">Sale</a>
+                    <Link to="">Sale</Link>
                   </span>
                 </li>
               </ul>

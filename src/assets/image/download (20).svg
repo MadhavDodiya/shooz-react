@@ -1,0 +1,10 @@
+<svg class="svg-cart" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g>
+      <path d="M2 23.9843V6.25565L4.08696 6.26087V6.29217L21.8261 6.27756V23.9833H2V23.9843ZM19.7391 8.33217H4.08696V21.8974H19.7391V8.33217ZM14.5217 5.32487C14.5217 3.19617 14.0073 1.98261 11.913 1.98261C9.82609 1.98261 9.30435 3.19722 9.30435 5.32487V6.27652H7.21739V4.84904C7.21739 1.24174 9.59026 0 11.913 0C14.0177 0 16.6087 1.41287 16.6087 4.84904V6.27652H14.5217V5.32487Z" fill="currentColor"></path>
+      </g>
+      <defs>
+      <clipPath id="clip0_4428_4093">
+      <rect width="19.8261" height="24" fill="white" transform="translate(2)"></rect>
+      </clipPath>
+      </defs>
+    </svg>
