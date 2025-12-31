@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 export default function Shop() {
   const categories = [
@@ -9,7 +9,89 @@ export default function Shop() {
     { id: "sneakers", label: "Sneakerhead’s Haven", count: 10 },
   ];
 
-  const [activeTab, setActiveTab] = useState("athletic");
+  // 1. EXPANDED DATA: Added attributes (brand, color, etc.) so filters work
+  const productsData = [
+    { id: 1, name: "Athletic Pro", price: 120, image: "src/assets/image/p1.png", category: "athletic", brand: "Nike", color: "Red", material: "Mesh", type: "Men", size: "8", inStock: true },
+    { id: 2, name: "Winter Boots", price: 180, image: "src/assets/image/p2.png", category: "boots", brand: "Timberland", color: "Brown", material: "Leather", type: "Women", size: "7", inStock: true },
+    { id: 3, name: "Luxury Oxford", price: 200, image: "src/assets/image/p3.png", category: "luxury", brand: "Gucci", color: "Black", material: "Leather", type: "Men", size: "10", inStock: false },
+    { id: 4, name: "Beach Sandals", price: 60, image: "src/assets/image/p4.png", category: "sandals", brand: "Adidas", color: "Blue", material: "Rubber", type: "Kids", size: "6", inStock: true },
+    { id: 5, name: "Street Sneakers", price: 90, image: "src/assets/image/p5.png", category: "sneakers", brand: "Puma", color: "White", material: "Canvas", type: "Men", size: "9", inStock: true },
+    { id: 6, name: "Comfy Slides", price: 40, image: "src/assets/image/p6.png", category: "sandals", brand: "Nike", color: "Black", material: "Synthetic", type: "Women", size: "8", inStock: true },
+    { id: 7, name: "Formal Derbys", price: 150, image: "src/assets/image/p7.png", category: "luxury", brand: "Reebok", color: "Brown", material: "Suede", type: "Men", size: "11", inStock: true },
+    { id: 8, name: "Speed Runner", price: 110, image: "src/assets/image/p8.png", category: "athletic", brand: "Adidas", color: "Green", material: "Mesh", type: "Women", size: "7", inStock: true },
+  ];
+
+  // UI State
+  const [grid, setGrid] = useState(3);
+  const [sort, setSort] = useState("Alphabetically, A-Z");
+  
+  // Accordion State (Collapsing sections)
+  const [sections, setSections] = useState({
+    collection: true, availability: true, price: true, brand: true,
+    category: true, color: true, material: true, size: true, type: true, more: false
+  });
+
+  const toggleSection = (key) => setSections(prev => ({ ...prev, [key]: !prev[key] }));
+
+  // 2. FILTER STATE: Centralized state for all active filters
+  const [price, setPrice] = useState({ min: 0, max: 300 });
+  const [filters, setFilters] = useState({
+    category: [],
+    brand: [],
+    color: [],
+    material: [],
+    type: [],
+    size: [],
+    availability: [] // 'inStock', 'outStock'
+  });
+
+  // Helper to handle Checkbox changes
+  const handleFilterChange = (section, value) => {
+    setFilters(prev => {
+      const active = prev[section];
+      if (active.includes(value)) {
+        return { ...prev, [section]: active.filter(item => item !== value) }; // Remove
+      } else {
+        return { ...prev, [section]: [...active, value] }; // Add
+      }
+    });
+  };
+
+  // 3. FILTERING LOGIC: Runs whenever filters or price changes
+  const filteredProducts = useMemo(() => {
+    return productsData.filter(product => {
+      // Price Check
+      if (product.price < price.min || product.price > price.max) return false;
+
+      // Checkbox Checks (Only filter if the user has selected at least one option in that category)
+      if (filters.category.length > 0 && !filters.category.includes(product.category)) return false;
+      if (filters.brand.length > 0 && !filters.brand.includes(product.brand)) return false;
+      if (filters.color.length > 0 && !filters.color.includes(product.color)) return false;
+      if (filters.material.length > 0 && !filters.material.includes(product.material)) return false;
+      if (filters.type.length > 0 && !filters.type.includes(product.type)) return false;
+      if (filters.size.length > 0 && !filters.size.includes(product.size)) return false;
+
+      // Availability Check
+      if (filters.availability.length > 0) {
+        const showInStock = filters.availability.includes("In Stock");
+        const showOutStock = filters.availability.includes("Out of Stock");
+        if (showInStock && !showOutStock && !product.inStock) return false;
+        if (!showInStock && showOutStock && product.inStock) return false;
+      }
+
+      return true;
+    });
+  }, [filters, price]);
+
+  // 4. SORTING LOGIC: Runs on the filtered results
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    if (sort === "Alphabetically, A-Z") return a.name.localeCompare(b.name);
+    if (sort === "Alphabetically, Z-A") return b.name.localeCompare(a.name);
+    if (sort === "Price, Low to High") return a.price - b.price;
+    if (sort === "Price, High to Low") return b.price - a.price;
+    return 0;
+  });
+
 
 
   return (
@@ -33,9 +115,9 @@ export default function Shop() {
             {categories.map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => setActiveTab(cat.id)}
+                onClick={() => handleFilterChange('category', cat.id)}
                 className={`relative whitespace-nowrap px-6 py-4 text-sm font-medium transition
-                  ${activeTab === cat.id
+                  ${filters.category.includes(cat.id)
                     ? "text-black"
                     : "text-gray-500 hover:text-black"
                   }`}
@@ -43,7 +125,7 @@ export default function Shop() {
                 {cat.label}{" "}
                 <span className="text-gray-400">({cat.count})</span>
 
-                {activeTab === cat.id && (
+                {filters.category.includes(cat.id) && (
                   <span className="absolute left-0 bottom-0 h-[2px] w-full bg-black"></span>
                 )}
               </button>
@@ -52,24 +134,7 @@ export default function Shop() {
         </div>
       </div>
 
-      {/* Tab Content */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        {activeTab === "athletic" && (
-          <p className="text-lg font-medium"></p>
-        )}
-        {activeTab === "boots" && (
-          <p className="text-lg font-medium"></p>
-        )}
-        {activeTab === "luxury" && (
-          <p className="text-lg font-medium"></p>
-        )}
-        {activeTab === "sandals" && (
-          <p className="text-lg font-medium"></p>
-        )}
-        {activeTab === "sneakers" && (
-          <p className="text-lg font-medium"></p>
-        )}
-      </div>
+
 
       <div className="container-fluid">
         <div className="container">
@@ -78,7 +143,7 @@ export default function Shop() {
               <div className="group relative flex items-center  justify-center overflow-hidden rounded">
                 {/* IMAGE */}
                 <img src="src/assets/image/imgi_58_col-5.png" alt="Athletic Footwear"
-                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105"/>
+                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105" />
                 {/* HOVER MESSAGE */}
                 <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
                  transition-opacity duration-300">
@@ -93,7 +158,7 @@ export default function Shop() {
               <div className="group relative flex items-center  justify-center overflow-hidden rounded">
                 {/* IMAGE */}
                 <img src="src/assets/image/col-4.png" alt="Athletic Footwear"
-                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105"/>
+                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105" />
                 {/* HOVER MESSAGE */}
                 <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
                  transition-opacity duration-300">
@@ -107,7 +172,7 @@ export default function Shop() {
               <div className="group relative flex items-center  justify-center overflow-hidden rounded">
                 {/* IMAGE */}
                 <img src="src/assets/image/col-6.png" alt="Athletic Footwear"
-                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105"/>
+                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105" />
                 {/* HOVER MESSAGE */}
                 <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
                  transition-opacity duration-300">
@@ -121,7 +186,7 @@ export default function Shop() {
               <div className="group relative flex items-center  justify-center overflow-hidden rounded">
                 {/* IMAGE */}
                 <img src="src/assets/image/col-2.png" alt="Athletic Footwear"
-                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105"/>
+                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105" />
                 {/* HOVER MESSAGE */}
                 <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
                  transition-opacity duration-300">
@@ -135,7 +200,7 @@ export default function Shop() {
               <div className="group relative flex items-center  justify-center overflow-hidden rounded">
                 {/* IMAGE */}
                 <img src="src/assets/image/col-3.png" alt="Athletic Footwear"
-                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105"/>
+                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105" />
                 {/* HOVER MESSAGE */}
                 <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
                  transition-opacity duration-300">
@@ -149,7 +214,197 @@ export default function Shop() {
         </div>
       </div>
 
+      <div className="min-h-screen bg-white py-10">
+        <div className="max-w-7xl mx-auto px-4">
+          
+          {/* HEADER (Grid & Sort) */}
+          <div className="flex flex-col md:flex-row justify-between items-center mb-8 pb-4 border-b">
+            <div className="flex gap-2">
+              {[2, 3, 4].map((col) => (
+                <button key={col} onClick={() => setGrid(col)} className={`border px-3 py-2 ${grid === col ? "border-black bg-black text-white" : "border-gray-300"}`}>
+                  Columns: {col}
+                </button>
+              ))}
+            </div>
+            <div className="flex items-center gap-4 mt-4 md:mt-0">
+              <select value={sort} onChange={(e) => setSort(e.target.value)} className="border px-3 py-2 rounded">
+                <option>Alphabetically, A-Z</option>
+                <option>Alphabetically, Z-A</option>
+                <option>Price, Low to High</option>
+                <option>Price, High to Low</option>
+              </select>
+              <span className="font-medium">{sortedProducts.length} Products</span>
+            </div>
+          </div>
 
+          <div className="flex flex-col lg:flex-row gap-8">
+            
+            {/* ================= FILTER SIDEBAR ================= */}
+            <aside className="w-full lg:w-72 space-y-6">
+              
+              {/* Category */}
+              <div className="border-b pb-4">
+                <button onClick={() => toggleSection('collection')} className="w-full flex justify-between font-semibold text-lg">
+                  Category <span>{sections.collection ? "−" : "+"}</span>
+                </button>
+                {sections.collection && (
+                  <div className="mt-4 space-y-2">
+                     {["athletic", "boots", "luxury", "sandals", "sneakers"].map(cat => (
+                        <label key={cat} className="flex gap-2 items-center cursor-pointer">
+                          <input type="checkbox" checked={filters.category.includes(cat)} onChange={() => handleFilterChange('category', cat)} /> 
+                          <span className="capitalize">{cat}</span>
+                        </label>
+                     ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Availability */}
+              <div className="border-b pb-4">
+                <button onClick={() => toggleSection('availability')} className="w-full flex justify-between font-semibold text-lg">
+                  Availability <span>{sections.availability ? "−" : "+"}</span>
+                </button>
+                {sections.availability && (
+                  <div className="mt-4 space-y-2">
+                    {["In Stock", "Out of Stock"].map(status => (
+                      <label key={status} className="flex gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={filters.availability.includes(status)} onChange={() => handleFilterChange('availability', status)} /> 
+                        {status}
+                      </label>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Price */}
+              <div className="border-b pb-4">
+                <button onClick={() => toggleSection('price')} className="w-full flex justify-between font-semibold text-lg">
+                  Price Range <span>{sections.price ? "−" : "+"}</span>
+                </button>
+                {sections.price && (
+                  <div className="mt-4 space-y-4">
+                    <div className="flex items-center justify-between text-sm">
+                        <span>₹{price.min}</span>
+                        <span>₹{price.max}</span>
+                    </div>
+                    <input 
+                      type="range" min="0" max="300" step="10" 
+                      value={price.max} 
+                      onChange={(e) => setPrice({ ...price, max: Number(e.target.value) })}
+                      className="w-full accent-black"
+                    />
+                  </div>
+                )}
+              </div>
+
+              {/* Brand */}
+              <div className="border-b pb-4">
+                <button onClick={() => toggleSection('brand')} className="w-full flex justify-between font-semibold text-lg">
+                  Brand <span>{sections.brand ? "−" : "+"}</span>
+                </button>
+                {sections.brand && (
+                  <div className="mt-4 space-y-2">
+                    {["Nike", "Adidas", "Puma", "Reebok", "Gucci", "Timberland"].map(b => (
+                      <label key={b} className="flex gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={filters.brand.includes(b)} onChange={() => handleFilterChange('brand', b)} /> 
+                        {b}
+                      </label>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Color */}
+              <div className="border-b pb-4">
+                <button onClick={() => toggleSection('color')} className="w-full flex justify-between font-semibold text-lg">
+                  Color <span>{sections.color ? "−" : "+"}</span>
+                </button>
+                {sections.color && (
+                  <div className="flex gap-2 mt-4 flex-wrap">
+                    {["Black", "White", "Red", "Blue", "Green", "Brown"].map(c => (
+                      <div 
+                        key={c} 
+                        onClick={() => handleFilterChange('color', c)}
+                        className={`w-6 h-6 rounded-full border cursor-pointer ${filters.color.includes(c) ? 'ring-2 ring-offset-2 ring-black' : ''}`}
+                        style={{ backgroundColor: c.toLowerCase() }}
+                        title={c}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+
+               {/* Material */}
+               <div className="border-b pb-4">
+                <button onClick={() => toggleSection('material')} className="w-full flex justify-between font-semibold text-lg">
+                  Material <span>{sections.material ? "−" : "+"}</span>
+                </button>
+                {sections.material && (
+                  <div className="mt-4 space-y-2">
+                     {["Leather", "Mesh", "Rubber", "Canvas", "Suede", "Synthetic"].map(m => (
+                        <label key={m} className="flex gap-2 items-center cursor-pointer">
+                          <input type="checkbox" checked={filters.material.includes(m)} onChange={() => handleFilterChange('material', m)} /> 
+                          {m}
+                        </label>
+                     ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Size */}
+              <div className="border-b pb-4">
+                <button onClick={() => toggleSection('size')} className="w-full flex justify-between font-semibold text-lg">
+                  Size <span>{sections.size ? "−" : "+"}</span>
+                </button>
+                {sections.size && (
+                   <div className="grid grid-cols-4 gap-2 mt-4">
+                   {["6","7","8","9","10","11"].map(s => (
+                     <button 
+                       key={s} 
+                       onClick={() => handleFilterChange('size', s)}
+                       className={`border py-1 text-sm ${filters.size.includes(s) ? "bg-black text-white" : "hover:border-black"}`}
+                      >
+                       {s}
+                     </button>
+                   ))}
+                 </div>
+                )}
+              </div>
+
+            </aside>
+
+            {/* ================= PRODUCT GRID ================= */}
+            <main className="flex-1">
+              {sortedProducts.length === 0 ? (
+                <div className="text-center py-20 text-gray-500">No products found matching these filters.</div>
+              ) : (
+                <div className={`grid gap-6 ${grid === 2 ? 'grid-cols-2' : grid === 3 ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'}`}>
+                  {sortedProducts.map((p) => (
+                    <div key={p.id} className="border rounded-lg group hover:shadow-lg transition">
+                      <div className="h-64 bg-gray-100 flex items-center justify-center relative overflow-hidden rounded-t-lg">
+                        <img src={p.image} alt={p.name} className="h-4/5 object-contain group-hover:scale-110 transition duration-300 mix-blend-multiply" />
+                        {!p.inStock && <span className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">Sold Out</span>}
+                      </div>
+                      <div className="p-4">
+                        <div className="flex justify-between items-start">
+                          <div>
+                             <p className="text-xs text-gray-500">{p.brand}</p>
+                             <h3 className="font-semibold">{p.name}</h3>
+                          </div>
+                          <p className="font-bold">₹{p.price}</p>
+                        </div>
+                        <button disabled={!p.inStock} className={`mt-3 w-full text-white py-2 rounded ${p.inStock ? "bg-black hover:bg-gray-800" : "bg-gray-400 cursor-not-allowed"}`}>
+                          {p.inStock ? "Add to Cart" : "Out of Stock"}
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </main>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

@@ -1,0 +1,4 @@
+- [ ] Add useMemo to React imports
+- [ ] Remove activeTab state and related code
+- [ ] Update category tabs to use handleFilterChange for filtering
+- [ ] Remove the empty Tab Content section
