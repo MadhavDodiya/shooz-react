@@ -154,7 +154,7 @@ export default function Header() {
                 <div className="flex-1">
                   <p>{item.name}</p>
                   {/* <p className="text-sm">Qty: {item.qty}</p> */}
-                  <p className="font-bold">${item.price * item.qty}</p>
+                  <p className="font-bold">₹{item.price * item.qty}</p>
                 </div>
                 <button className="text-red-500"
                   onClick={() => setCartItems(cartItems.filter(i => i.id !== item.id))}>

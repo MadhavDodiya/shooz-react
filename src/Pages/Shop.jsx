@@ -647,20 +647,12 @@ export default function Shop() {
                   No products found matching these filters.
                 </div>
               ) : (
-                <div
-                  className={`grid gap-6 ${grid === 2 ? "grid-cols-2" : grid === 3 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"}`}
-                >
+                <div className={`grid gap-6 ${grid === 2 ? "grid-cols-2" : grid === 3 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"}`}>
                   {sortedProducts.map((p) => (
-                    <div
-                      key={p.id}
-                      className="border rounded-lg group hover:shadow-lg transition"
+                    <div key={p.id} className="border rounded-lg group"
                     >
                       <div className="h-64 bg-gray-100 flex items-center justify-center relative overflow-hidden rounded-t-lg">
-                        <img
-                          src={p.image}
-                          alt={p.name}
-                          className="h-4/5 object-contain group-hover:scale-110 transition duration-300 mix-blend-multiply"
-                        />
+                        <img src={p.image} alt={p.name} className="h-full object-contain group-hover:scale-110 transition duration-300 mix-blend-multiply"/>
                         {!p.inStock && (
                           <span className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">
                             Sold Out
@@ -677,26 +669,16 @@ export default function Shop() {
                         </div>
                         <div className="mt-3 flex gap-2">
                           {/* WISHLIST */}
-                          <button
-                            onClick={() => addToWishlist(p)}
-                            className="w-10 flex items-center justify-center border rounded hover:bg-red-50"
-                          >
+                          <button onClick={() => addToWishlist(p)} className="w-10 flex items-center justify-center border rounded hover:bg-red-50">
                             ❤️
                           </button>
 
                           {/* ADD TO CART */}
-                          <button
-                            disabled={!p.inStock}
-                            onClick={() => addToCart(p)}
-                            className={`flex-1 text-white py-2 rounded ${p.inStock
-                              ? "bg-black hover:bg-gray-800"
-                              : "bg-gray-400 cursor-not-allowed"
-                              }`}
-                          >
+                          <button disabled={!p.inStock} onClick={() => addToCart(p)} className={`flex-1 text-white py-2 rounded ${p.inStock? "bg-black hover:bg-gray-800"
+                              : "bg-gray-400 cursor-not-allowed"}`}>
                             {p.inStock ? "Add to Cart" : "Out of Stock"}
                           </button>
                         </div>
-
                       </div>
                     </div>
                   ))}

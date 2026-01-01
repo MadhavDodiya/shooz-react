@@ -33,16 +33,16 @@ const Footer = () => {
       </div>
 
       {/* Footer Links */}
-      <div className="max-w-7xl mx-auto px-4 py-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 text-sm text-gray-800">
+      <div className="text-center max-w-7xl mx-auto px-4 py-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 text-sm text-gray-800">
         {/* Information */}
         <div>
           <h3 className="font-semibold mb-4 uppercase">Information</h3>
-          <ul className="space-y-2">
-            <li>About Us</li>
-            <li>Privacy Policy</li>
-            <li>Returns Policy</li>
-            <li>Shipping Policy</li>
-            <li>Terms & Conditions</li>
+          <ul className="space-y-2 hover:text-pink-500">
+            <li className="hover:text-pink-500">About Us</li>
+            <li className="hover:text-pink-500">Privacy Policy</li>
+            <li className="hover:text-pink-500">Returns Policy</li>
+            <li className="hover:text-pink-500">Shipping Policy</li>
+            <li className="hover:text-pink-500">Terms & Conditions</li>
           </ul>
         </div>
 
@@ -50,18 +50,18 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold mb-4 uppercase">Quick Links</h3>
           <ul className="space-y-2">
-            <li>My Account</li>
-            <li>My Cart</li>
-            <li>Size Chart</li>
-            <li>Wishlist</li>
-            <li>Gift Card</li>
+            <li className="hover:text-pink-500">My Account</li>
+            <li className="hover:text-pink-500">My Cart</li>
+            <li className="hover:text-pink-500">Size Chart</li>
+            <li className="hover:text-pink-500">Wishlist</li>
+            <li className="hover:text-pink-500">Gift Card</li>
           </ul>
         </div>
 
         {/* Brand */}
         <div>
           <h3 className="font-bold text-xl mb-4"><img src="src/assets/image/logo.png" alt="" /></h3>
-          <p>T: + (08) 9055 0269</p>
+          <p className="hover:text-pink-500">T: + (08) 9055 0269</p>
           <p className="mt-1">E: example@example.com</p>
           <p className="mt-3">
             50 Porana Place, West Casuarinas,
@@ -74,11 +74,11 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold mb-4 uppercase">Categories</h3>
           <ul className="space-y-2">
-            <li>Athletic Footwear</li>
-            <li>Boots for Every Occasion</li>
-            <li>Luxury Leather Shoes</li>
-            <li>Sandals & Slides</li>
-            <li>Sneakerhead’s Haven</li>
+            <li className="hover:text-pink-500">Athletic Footwear</li>
+            <li className="hover:text-pink-500">Boots for Every Occasion</li>
+            <li className="hover:text-pink-500">Luxury Leather Shoes</li>
+            <li className="hover:text-pink-500">Sandals & Slides</li>
+            <li className="hover:text-pink-500">Sneakerhead’s Haven</li>
           </ul>
         </div>
 
@@ -86,11 +86,11 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold mb-4 uppercase">Support</h3>
           <ul className="space-y-2">
-            <li>Contact Us</li>
-            <li>Newsletter</li>
-            <li>Gift Cards</li>
-            <li>Sign In</li>
-            <li>My Account</li>
+            <li className="hover:text-pink-500">Contact Us</li>
+            <li className="hover:text-pink-500">Newsletter</li>
+            <li className="hover:text-pink-500">Gift Cards</li>
+            <li className="hover:text-pink-500">Sign In</li>
+            <li className="hover:text-pink-500">My Account</li>
           </ul>
         </div>
       </div>
