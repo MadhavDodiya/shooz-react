@@ -6,7 +6,7 @@ function Home() {
     const [count, setCount] = useState();
 
     const navigate = useNavigate();
-    
+
     return (
         <>
             <div className="container-fluid bgimg1">
@@ -228,14 +228,14 @@ function Home() {
             <div className="container-fluid bgimg5">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-4"></div>
-                        <div className="col-md-8">
+                        <div className="col-md-6"></div>
+                        <div className="col-md-6">
                             <div className="container-fluid py-5">
-                                <p className='text-[15px] py-3 text-black float-end'>COMFORT MEETS FASHION</p>
-                                <h1 className='text-4xl py-2 font-semibold text-black float-right'>Discover shoes that look great</h1>
-                                <h1 className='text-4xl py-2 font-semibold text-black float-right'>and feel even better</h1>
-                                <p className='text-[12px] text-black py-3 float-right'>Our collection features comfortable and stylish footwear designed to keep your feet happy all day long.</p>
-                                <button className='bg-pink-500 hover:bg-black px-4 py-2.5 text-white float-right'>Shop Now</button>
+                                <p className='text-[15px] py-3 text-black'>COMFORT MEETS FASHION</p>
+                                <h1 className='text-4xl py-2 font-semibold text-black'>Discover shoes that look great</h1>
+                                <h1 className='text-4xl py-2 font-semibold text-black'>and feel even better</h1>
+                                <p className='text-[12px] text-black py-3'>Our collection features comfortable and stylish footwear designed to keep your feet happy all day long.</p>
+                                <button className='bg-pink-500 hover:bg-black px-4 py-2.5 text-white'>Shop Now</button>
                             </div>
                         </div>
                     </div>
@@ -512,7 +512,7 @@ function Home() {
                 </div>
             </div>
 
-            <div className="container-fluid gcolor py-12 mt-20 mb-20">
+            <div className="container-fluid gcolor py-12 mt-20">
                 <div className="container text-center">
                     <p className="inline pe-36 text-white font-semibold">
                         Discover Our Stores: Your Local Shoe Haven
@@ -521,15 +521,15 @@ function Home() {
                 </div>
             </div>
 
-            <div className="container-fluid">
+            <div className="container-fluid bg-[#f9f9f9] pt-20">
                 <div className="container text-center">
                     <p className="text-4xl font-semibold">Customer Feedback Highlight</p>
                     <p className="text-gray-500">Laoreet ridiculus congue magna malesuada <br /> phasellus condimentum taciti mus primis.</p>
                 </div>
             </div>
 
-            <div className="container-fluid my-10">
-                <div className="container">
+            <div className="container-fluid py-10 bg-[#f9f9f9]">
+                <div className="container py-5">
                     <div className="row">
                         <div className="col-md-2 mx-4">
                             <img src="src/assets/image/imgi_39_text-logo-1.png" className="img-fluid" alt="" />
@@ -578,23 +578,74 @@ function Home() {
                 </div>
             </div>
 
-            <div className="container-fluid">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-6 bgimg">
-                            <img src="src/assets/image/blog-2.png" className="img-fluid" alt="" />
+            <section class="max-w-7xl mx-auto px-4 py-12">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+                    {/* LEFT BIG BLOG */}
+                    <div class="lg:col-span-2 relative overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07d" alt="Blog" class="w-full h-[500px] object-cover"/>
+                        {/* Overlay */}
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        {/* Content */}
+                        <div class="absolute bottom-6 left-6 text-white max-w-xl">
+                            <div class="flex items-center gap-3 text-sm mb-3">
+                                <span>Oct 28 2024</span>
+                                <span class="flex items-center gap-1">
+                                    💬 0 comments
+                                </span>
+                            </div>
+                            <h2 class="text-3xl font-bold leading-tight">
+                                The Future Of Footwear: A Look Ahead
+                            </h2>
+                        </div>
+                    </div>
+
+                    {/* RIGHT BLOG LIST */}
+                    <div class="space-y-8">
+                        {/* Item 1 */}
+                        <div class="flex gap-5">
+                            <img src="" class="w-32 h-24 object-cover rounded-md" alt=""/>
+                            <div>
+                                <div class="flex items-center gap-3 text-sm text-gray-500 mb-2">
+                                    <span>Oct 28 2024</span>
+                                    <span>💬 0 comments</span>
+                                </div>
+                                <h3 class="text-lg font-semibold leading-snug">
+                                    Eco-Friendly Footwear: Sustainable Style
+                                </h3>
+                            </div>
                         </div>
 
-                        <div className="col-md-6">
-                            <div className="container">
-                                <img src="src/assets/image/blog-1.png" className="float-start h-[150px] px-3 inline w-auto" alt="" />
-                                <p className="px-3 py-5 inline">Oct 28 2024 <i class="fa-regular fa-comment"></i> Comment</p><br />
-                                <p className="ps-3 inline">Eco-Friendly Footwear: Sustainable Style</p>
+                        {/* Item 2 */}
+                        <div class="flex gap-5">
+                            <img src="" class="w-32 h-24 object-cover rounded-md" alt=""/>
+                            <div>
+                                <div class="flex items-center gap-3 text-sm text-gray-500 mb-2">
+                                    <span>Oct 17 2024</span>
+                                    <span>💬 0 comments</span>
+                                </div>
+                                <h3 class="text-lg font-semibold leading-snug">
+                                    The Ultimate Guide to Sneaker Care
+                                </h3>
+                            </div>
+                        </div>
+
+                        {/* Item 3 */}
+                        <div class="flex gap-5">
+                            <img src="" class="w-32 h-24 object-cover rounded-md" alt=""/>
+                            <div>
+                                <div class="flex items-center gap-3 text-sm text-gray-500 mb-2">
+                                    <span>Oct 17 2024</span>
+                                    <span>💬 0 comments</span>
+                                </div>
+                                <h3 class="text-lg font-semibold leading-snug">
+                                    How to Style Your Favorite Sneakers
+                                </h3>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </>
     );
 }
