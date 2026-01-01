@@ -66,7 +66,7 @@ export default function Wishlist() {
                 </div>
                 <div className="p-6">
                   <h3 className="font-semibold text-lg text-gray-900 mb-2 line-clamp-2">{product.name}</h3>
-                  <p className="text-2xl font-bold text-black mb-6">${product.price}</p>
+                  <p className="text-2xl font-bold text-black mb-6">₹{product.price}</p>
                   <div className="flex gap-3">
                     <button 
                       onClick={() => addToCart(product)}

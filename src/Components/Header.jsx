@@ -17,6 +17,19 @@ export default function Header() {
   const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
   const totalPrice = cartItems.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
+  useEffect(() => {
+    const updateCart = () => {
+      const items = JSON.parse(localStorage.getItem("cartItems")) || [];
+      setCartItems(items);
+    };
+
+    updateCart();
+    window.addEventListener("cartUpdated", updateCart);
+
+    return () => window.removeEventListener("cartUpdated", updateCart);
+  }, []);
+
+
   return (
     <>
       <header>
@@ -140,7 +153,7 @@ export default function Header() {
                 <img src={item.image} className="w-16 h-16 rounded" />
                 <div className="flex-1">
                   <p>{item.name}</p>
-                  <p className="text-sm">Qty: {item.qty}</p>
+                  {/* <p className="text-sm">Qty: {item.qty}</p> */}
                   <p className="font-bold">${item.price * item.qty}</p>
                 </div>
                 <button className="text-red-500"
@@ -154,9 +167,9 @@ export default function Header() {
           <div className="p-4 border-t">
             <div className="flex justify-between font-bold mb-3">
               <span>Total</span>
-              <span>${totalPrice.toFixed(2)}</span>
+              <span>₹{totalPrice.toFixed(2)}</span>
             </div>
-            <Link to="/cart" className="block bg-red-500 text-white text-center py-2 rounded">
+            <Link to="/shop" className="block bg-red-500 text-white text-center py-2 rounded">
               View Cart
             </Link>
           </div>
