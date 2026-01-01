@@ -412,7 +412,7 @@ export default function Shop() {
                   onClick={() => setGrid(col)}
                   className={`border px-3 py-2 ${grid === col ? "border-black bg-black text-white" : "border-gray-300"}`}
                 >
-                  Columns: {col}
+                  ||
                 </button>
               ))}
             </div>
@@ -652,7 +652,7 @@ export default function Shop() {
                     <div key={p.id} className="border rounded-lg group"
                     >
                       <div className="h-64 bg-gray-100 flex items-center justify-center relative overflow-hidden rounded-t-lg">
-                        <img src={p.image} alt={p.name} className="h-full object-contain group-hover:scale-110 transition duration-300 mix-blend-multiply"/>
+                        <img src={p.image} alt={p.name} className="h-full object-contain group-hover:scale-110 transition duration-300 mix-blend-multiply" />
                         {!p.inStock && (
                           <span className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">
                             Sold Out
@@ -674,8 +674,8 @@ export default function Shop() {
                           </button>
 
                           {/* ADD TO CART */}
-                          <button disabled={!p.inStock} onClick={() => addToCart(p)} className={`flex-1 text-white py-2 rounded ${p.inStock? "bg-black hover:bg-gray-800"
-                              : "bg-gray-400 cursor-not-allowed"}`}>
+                          <button disabled={!p.inStock} onClick={() => addToCart(p)} className={`flex-1 text-white py-2 rounded ${p.inStock ? "bg-black hover:bg-gray-800"
+                            : "bg-gray-400 cursor-not-allowed"}`}>
                             {p.inStock ? "Add to Cart" : "Out of Stock"}
                           </button>
                         </div>

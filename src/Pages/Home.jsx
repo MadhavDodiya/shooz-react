@@ -583,7 +583,7 @@ function Home() {
 
                     {/* LEFT BIG BLOG */}
                     <div class="lg:col-span-2 relative overflow-hidden rounded-lg">
-                        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07d" alt="Blog" class="w-full h-[500px] object-cover"/>
+                        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07d" alt="Blog" class="w-full h-[500px] object-cover" />
                         {/* Overlay */}
                         <div class="absolute inset-0 bg-black/40"></div>
                         {/* Content */}
@@ -604,7 +604,7 @@ function Home() {
                     <div class="space-y-8">
                         {/* Item 1 */}
                         <div class="flex gap-5">
-                            <img src="" class="w-32 h-24 object-cover rounded-md" alt=""/>
+                            <img src="" class="w-32 h-24 object-cover rounded-md" alt="" />
                             <div>
                                 <div class="flex items-center gap-3 text-sm text-gray-500 mb-2">
                                     <span>Oct 28 2024</span>
@@ -618,7 +618,7 @@ function Home() {
 
                         {/* Item 2 */}
                         <div class="flex gap-5">
-                            <img src="" class="w-32 h-24 object-cover rounded-md" alt=""/>
+                            <img src="" class="w-32 h-24 object-cover rounded-md" alt="" />
                             <div>
                                 <div class="flex items-center gap-3 text-sm text-gray-500 mb-2">
                                     <span>Oct 17 2024</span>
@@ -632,7 +632,7 @@ function Home() {
 
                         {/* Item 3 */}
                         <div class="flex gap-5">
-                            <img src="" class="w-32 h-24 object-cover rounded-md" alt=""/>
+                            <img src="" class="w-32 h-24 object-cover rounded-md" alt="" />
                             <div>
                                 <div class="flex items-center gap-3 text-sm text-gray-500 mb-2">
                                     <span>Oct 17 2024</span>

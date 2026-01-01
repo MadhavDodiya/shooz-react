@@ -6,14 +6,6 @@ export default function Header() {
   const [cartItems, setCartItems] = useState([]);
   const [isLoginOpen, setIsLoginOpen] = useState(false); // ✅ ADDED
 
-  // Simulate cart data (replace with real cart logic)
-  useEffect(() => {
-    setCartItems([
-      { id: 1, name: 'Sneakers', price: 99, qty: 2, image: '/api/placeholder/60/60' },
-      { id: 2, name: 'Jacket', price: 199, qty: 1, image: '/api/placeholder/60/60' },
-    ]);
-  }, []);
-
   const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
   const totalPrice = cartItems.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
@@ -28,6 +20,29 @@ export default function Header() {
 
     return () => window.removeEventListener("cartUpdated", updateCart);
   }, []);
+
+  // UPDATE QUANTITY
+  const updateQuantity = (id, type) => {
+    const updatedCart = cartItems.map((item) => {
+      if (item.id === id) {
+        if (type === "inc") return { ...item, qty: item.qty + 1 };
+        if (type === "dec" && item.qty > 1)
+          return { ...item, qty: item.qty - 1 };
+      }
+      return item;
+    });
+
+    setCartItems(updatedCart);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+    window.dispatchEvent(new Event("cartUpdated"));
+  };
+
+  const removeItem = (id) => {
+    const updatedCart = cartItems.filter((item) => item.id !== id);
+    setCartItems(updatedCart);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+    window.dispatchEvent(new Event("cartUpdated"));
+  };
 
 
   return (
@@ -63,15 +78,16 @@ export default function Header() {
             <div className="flex items-center justify-between h-16">
 
               <div className="text-2xl font-bold">
-                <img src="/src/assets/image/imgi_2_logo.png" alt="" />
+                <img src="src/assets/image/imgi_2_logo.png" alt="" />
               </div>
 
               <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
-                <li className="text-red-500 hover:border-red-500 hover:border-b-2 pb-1"><Link to="/">Home</Link></li>
-                <li><Link to="/shop">Shop</Link></li>
-                <li>Product</li>
-                <li><Link to="/blog">Blog</Link></li>
-                <li>Pages</li>
+                <li className="hover:border-red-500 hover:border-b-2 pb-1 hover:text-pink-500"><Link to="/">Home</Link></li>
+                <li className="hover:border-red-500 hover:border-b-2 pb-1 hover:text-pink-500"><Link to="/shop">Shop</Link></li>
+                <li className="hover:border-red-500 hover:border-b-2 pb-1 hover:text-pink-500">Product</li>
+                <li className="hover:border-red-500 hover:border-b-2 pb-1 hover:text-pink-500"><Link to="/blog">Blog</Link></li>
+                <li className="hover:border-red-500 hover:border-b-2 pb-1 hover:text-pink-500">Pages</li>
+                <li className="hover:border-red-500 hover:border-b-2 pb-1 hover:text-pink-500">Buy Now</li>
               </ul>
 
               <div className="hidden md:flex items-center gap-5 text-lg">
@@ -119,62 +135,115 @@ export default function Header() {
             <button className="absolute top-3 right-3 text-gray-400 hover:text-red-500"
               onClick={() => setIsLoginOpen(false)}>✕</button>
 
-            <h2 className="text-2xl font-bold text-center mb-5">Login</h2>
-
+            <h2 className="text-2xl font-bold text-center py-3">Login</h2>
+            <p className="text-center pb-5 text-gray-500">Please enter your e-mail and password</p>
             <form className="space-y-4">
-              <input type="email" placeholder="Email"
-                className="w-full border px-3 py-2 rounded" />
-              <input type="password" placeholder="Password"
-                className="w-full border px-3 py-2 rounded" />
+              <input type="email" placeholder="Email" className="w-full border px-3 py-2 rounded" />
+              <input type="password" placeholder="Password" className="w-full border px-3 py-2 rounded" />
+              <p className="float-end text-gray-500 text-[13px] border-b-2 hover:text-pink-500">Forget Your Password</p>
               <button className="w-full bg-red-500 text-white py-2 rounded">
                 Login
               </button>
+              <p className="text-center py-3 text-gray-500">New Customer? Register</p>
             </form>
           </div>
         </div>
       )}
 
-      {/* ================= CART SLIDEBAR (ADDED) ================= */}
+      {/* ================= CART SIDEBAR ================= */}
       <div className={`fixed inset-0 z-[998] ${isCartOpen ? "visible" : "invisible"}`}>
-        <div className="absolute inset-0 bg-black/50"
-          onClick={() => setIsCartOpen(false)}></div>
+        {/* BACKDROP */}
+        <div
+          className="absolute inset-0 bg-black/50"
+          onClick={() => setIsCartOpen(false)}
+        ></div>
 
-        <div className={`absolute right-0 top-0 h-full w-full sm:w-96 bg-white shadow-xl transform transition-transform duration-300
-          ${isCartOpen ? "translate-x-0" : "translate-x-full"}`}>
-
+        {/* SLIDEBAR */}
+        <div
+          className={`absolute right-0 top-0 h-full w-full sm:w-96 bg-white shadow-xl
+    transform transition-transform duration-300 flex flex-col
+    ${isCartOpen ? "translate-x-0" : "translate-x-full"}`}
+        >
+          {/* HEADER (FIXED) */}
           <div className="flex justify-between items-center p-4 border-b">
             <h3 className="font-bold">Shopping Cart ({totalItems})</h3>
             <button onClick={() => setIsCartOpen(false)}>✕</button>
           </div>
 
-          <div className="overflow-y-auto flex-1">
-            {cartItems.map(item => (
-              <div key={item.id} className="flex gap-4 p-4 border-b">
-                <img src={item.image} className="w-16 h-16 rounded" />
-                <div className="flex-1">
-                  <p>{item.name}</p>
-                  {/* <p className="text-sm">Qty: {item.qty}</p> */}
-                  <p className="font-bold">₹{item.price * item.qty}</p>
+          {/* CART ITEMS (SCROLLABLE) */}
+          <div className="flex-1 overflow-y-auto">
+            {cartItems.length === 0 ? (
+              <p className="text-center text-gray-400 py-10">
+                Your cart is empty
+              </p>
+            ) : (
+              cartItems.map((item) => (
+                <div key={item.id} className="flex gap-4 p-4 border-b">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-16 h-16 rounded"
+                  />
+
+                  <div className="flex-1">
+                    <p className="font-medium">{item.name}</p>
+
+                    {/* QUANTITY CONTROLS */}
+                    <div className="flex items-center gap-3 mt-2">
+                      <button
+                        className="w-7 h-7 border rounded hover:bg-gray-100 disabled:opacity-50"
+                        onClick={() => updateQuantity(item.id, "dec")}
+                        disabled={item.qty === 1}
+                      >
+                        −
+                      </button>
+
+                      <span className="min-w-[20px] text-center">
+                        {item.qty}
+                      </span>
+
+                      <button
+                        className="w-7 h-7 border rounded hover:bg-gray-100"
+                        onClick={() => updateQuantity(item.id, "inc")}
+                      >
+                        +
+                      </button>
+                    </div>
+
+                    <p className="font-bold mt-2">
+                      ₹{(item.price * item.qty).toFixed(2)}
+                    </p>
+                  </div>
+
+                  {/* REMOVE */}
+                  <button
+                    className="text-red-500 text-sm"
+                    onClick={() => removeItem(item.id)}
+                  >
+                    Remove
+                  </button>
                 </div>
-                <button className="text-red-500"
-                  onClick={() => setCartItems(cartItems.filter(i => i.id !== item.id))}>
-                  Remove
-                </button>
-              </div>
-            ))}
+              ))
+            )}
           </div>
 
+          {/* FOOTER (FIXED) */}
           <div className="p-4 border-t">
             <div className="flex justify-between font-bold mb-3">
               <span>Total</span>
               <span>₹{totalPrice.toFixed(2)}</span>
             </div>
-            <Link to="/shop" className="block bg-red-500 text-white text-center py-2 rounded">
+
+            <Link
+              to="/shop"
+              className="block bg-red-500 text-white text-center py-2 rounded"
+            >
               View Cart
             </Link>
           </div>
         </div>
       </div>
+
     </>
   );
 }
