@@ -11,14 +11,14 @@ export default function Shop() {
 
   // 1. EXPANDED DATA: Added attributes (brand, color, etc.) so filters work
   const productsData = [
-    { id: 1, name: "Athletic Pro", price: 120, image: "src/assets/image/p1.png", category: "athletic", brand: "Nike", color: "Red", material: "Mesh", type: "Men", size: "8", inStock: true },
-    { id: 2, name: "Winter Boots", price: 180, image: "src/assets/image/p2.png", category: "boots", brand: "Timberland", color: "Brown", material: "Leather", type: "Women", size: "7", inStock: true },
-    { id: 3, name: "Luxury Oxford", price: 200, image: "src/assets/image/p3.png", category: "luxury", brand: "Gucci", color: "Black", material: "Leather", type: "Men", size: "10", inStock: false },
-    { id: 4, name: "Beach Sandals", price: 60, image: "src/assets/image/p4.png", category: "sandals", brand: "Adidas", color: "Blue", material: "Rubber", type: "Kids", size: "6", inStock: true },
-    { id: 5, name: "Street Sneakers", price: 90, image: "src/assets/image/p5.png", category: "sneakers", brand: "Puma", color: "White", material: "Canvas", type: "Men", size: "9", inStock: true },
-    { id: 6, name: "Comfy Slides", price: 40, image: "src/assets/image/p6.png", category: "sandals", brand: "Nike", color: "Black", material: "Synthetic", type: "Women", size: "8", inStock: true },
-    { id: 7, name: "Formal Derbys", price: 150, image: "src/assets/image/p7.png", category: "luxury", brand: "Reebok", color: "Brown", material: "Suede", type: "Men", size: "11", inStock: true },
-    { id: 8, name: "Speed Runner", price: 110, image: "src/assets/image/p8.png", category: "athletic", brand: "Adidas", color: "Green", material: "Mesh", type: "Women", size: "7", inStock: true },
+    { id: 1, name: "Athletic Pro", price: 120, image: "src/assets/image/imgi_49_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.jpg", category: "athletic", brand: "Nike", color: "Red", material: "Mesh", type: "Men", size: "8", inStock: true },
+    { id: 2, name: "Winter Boots", price: 180, image: "src/assets/image/imgi_50_product-18_be1e3b54-5764-4f9d-b77d-f23718b8bd6f.jpg", category: "boots", brand: "Timberland", color: "Brown", material: "Leather", type: "Women", size: "7", inStock: true },
+    { id: 3, name: "Luxury Oxford", price: 200, image: "src/assets/image/imgi_51_product-2_f21b4635-7aa2-414f-b44c-6ce8171394ed.jpg", category: "luxury", brand: "Gucci", color: "Black", material: "Leather", type: "Men", size: "10", inStock: false },
+    { id: 4, name: "Beach Sandals", price: 60, image: "src/assets/image/imgi_52_product-22.jpg", category: "sandals", brand: "Adidas", color: "Blue", material: "Rubber", type: "Kids", size: "6", inStock: true },
+    { id: 5, name: "Street Sneakers", price: 90, image: "src/assets/image/imgi_53_product-3_be4a38ab-621f-46d5-a126-3488687e10f6.jpg", category: "sneakers", brand: "Puma", color: "White", material: "Canvas", type: "Men", size: "9", inStock: true },
+    { id: 6, name: "Comfy Slides", price: 40, image: "src/assets/image/imgi_54_product-26_a72ab182-4323-4754-aa41-d64401571e17.jpg", category: "sandals", brand: "Nike", color: "Black", material: "Synthetic", type: "Women", size: "8", inStock: true },
+    { id: 7, name: "Formal Derbys", price: 150, image: "src/assets/image/imgi_55_product-4_a9f5532a-47cd-4f32-8958-57ee765f0a27.jpg", category: "luxury", brand: "Reebok", color: "Brown", material: "Suede", type: "Men", size: "11", inStock: true },
+    { id: 8, name: "Speed Runner", price: 110, image: "src/assets/image/imgi_56_product-19_323f61e6-cfd6-4407-823a-273f154d188c.jpg", category: "athletic", brand: "Adidas", color: "Green", material: "Mesh", type: "Women", size: "7", inStock: true },
   ];
 
   // UI State

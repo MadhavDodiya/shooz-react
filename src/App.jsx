@@ -3,8 +3,8 @@ import Header from './Components/Header.jsx';
 import Footer from './Components/Footer.jsx';
 import Home from './Pages/Home.jsx';
 import Shop from './Pages/Shop.jsx';
-// import Blog from './Pages/Blog.jsx';
-// import Pages from './Pages/Pages.jsx';
+import Blog from './Pages/Blog.jsx';
+import Wishlist from './Pages/Wishlist.jsx';
 import ScrollToTop from './ScrollToTop.jsx';
 
 function App() {
@@ -14,9 +14,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
-        {/* <Route path="/product" element={<Product />} /> */}
-        {/* <Route path="/blog" element={<Blog />} /> */}
-        {/* <Route path="/pages" element={<Pages />} /> */}
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
       <ScrollToTop />
       <Footer />
