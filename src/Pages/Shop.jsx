@@ -298,108 +298,32 @@ export default function Shop() {
         </div>
       </div>
 
-      <div className="container-fluid">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-md-2">
-              <div className="group relative flex items-center  justify-center overflow-hidden rounded">
-                {/* IMAGE */}
-                <img
-                  src="src/assets/image/imgi_58_col-5.png"
-                  alt="Athletic Footwear"
-                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-                {/* HOVER MESSAGE */}
-                <div
-                  className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
-                 transition-opacity duration-300"
-                >
-                  <p className="text-white font-semibold text-center">
-                    Athletic Footwear
-                  </p>
-                </div>
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+          {/* Image Card */}
+          {[
+            { src: "src/assets/image/imgi_58_col-5.png", label: "Athletic Footwear" },
+            { src: "src/assets/image/col-4.png", label: "Athletic Footwear" },
+            { src: "src/assets/image/col-6.png", label: "Athletic Footwear" },
+            { src: "src/assets/image/col-2.png", label: "Athletic Footwear" },
+            { src: "src/assets/image/col-3.png", label: "Athletic Footwear" },
+          ].map((item, idx) => (
+            <div key={idx} className="group relative flex items-center justify-center overflow-hidden rounded-lg">
+              {/* IMAGE */}
+              <img
+                src={item.src}
+                alt={item.label}
+                className="w-full h-40 sm:h-48 md:h-52 object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+              {/* HOVER MESSAGE */}
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white font-semibold text-center">{item.label}</p>
               </div>
             </div>
-
-            <div className="col-md-2">
-              <div className="group relative flex items-center  justify-center overflow-hidden rounded">
-                {/* IMAGE */}
-                <img
-                  src="src/assets/image/col-4.png"
-                  alt="Athletic Footwear"
-                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-                {/* HOVER MESSAGE */}
-                <div
-                  className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
-                 transition-opacity duration-300"
-                >
-                  <p className="text-white font-semibold text-center">
-                    Athletic Footwear
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-2">
-              <div className="group relative flex items-center  justify-center overflow-hidden rounded">
-                {/* IMAGE */}
-                <img
-                  src="src/assets/image/col-6.png"
-                  alt="Athletic Footwear"
-                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-                {/* HOVER MESSAGE */}
-                <div
-                  className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
-                 transition-opacity duration-300"
-                >
-                  <p className="text-white font-semibold text-center">
-                    Athletic Footwear
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-2">
-              <div className="group relative flex items-center  justify-center overflow-hidden rounded">
-                {/* IMAGE */}
-                <img
-                  src="src/assets/image/col-2.png"
-                  alt="Athletic Footwear"
-                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-                {/* HOVER MESSAGE */}
-                <div
-                  className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
-                 transition-opacity duration-300"
-                >
-                  <p className="text-white font-semibold text-center">
-                    Athletic Footwear
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-2">
-              <div className="group relative flex items-center  justify-center overflow-hidden rounded">
-                {/* IMAGE */}
-                <img
-                  src="src/assets/image/col-3.png"
-                  alt="Athletic Footwear"
-                  className="h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-                {/* HOVER MESSAGE */}
-                <div
-                  className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100
-                 transition-opacity duration-300"
-                >
-                  <p className="text-white font-semibold text-center">
-                    Athletic Footwear
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+
 
       <div className="min-h-screen bg-white py-10">
         <div className="max-w-7xl mx-auto px-4">
@@ -688,6 +612,8 @@ export default function Shop() {
           </div>
         </div>
       </div>
+
+      
     </>
   );
 }
