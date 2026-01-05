@@ -9,7 +9,7 @@
 /* Background Images */
 .bgimg1 {
   background-image: url("src/assets/image/imgi_141_banner-2.png");
-  height: 400px;
+  height: 500px;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -42,7 +42,7 @@
 
 .bgimg5 {
   background-image: url("src/assets/image/imgi_143_wide-banner.png");
-  height: 400px;
+  height: 500px;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
