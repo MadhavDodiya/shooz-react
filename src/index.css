@@ -382,3 +382,46 @@ input[type="range"]::-moz-range-thumb {
 .animate-marquee {
   animation: marquee 20s linear infinite;
 }
+
+/* ------------------------------
+   Wishlist icon animation styles
+   ------------------------------ */
+.wish-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 6px;
+  transition: transform 160ms ease, color 160ms ease;
+  color: inherit;
+  background: transparent;
+  border: none;
+}
+
+/* bootstrap icon inside button */
+.wish-icon .bi {
+  transition: transform 160ms ease, color 160ms ease;
+}
+
+/* animation played when item is added/removed */
+.wish-animate {
+  animation: wish-pop 700ms cubic-bezier(.2,.9,.3,1);
+}
+
+/* filled heart color */
+.bi-heart-fill {
+  color: #ec4899; /* pink-500 */
+}
+
+/* small hover lift */
+.wish-icon:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes wish-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.45); }
+  70% { transform: scale(.95); }
+  100% { transform: scale(1); }
+}
+/* ------------------------------ */

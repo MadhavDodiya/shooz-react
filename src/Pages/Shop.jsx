@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import Toast from "../Components/Toast"; // added import
 
 export default function Shop() {
   const categories = [
@@ -171,7 +172,22 @@ export default function Shop() {
     availability: [], // 'inStock', 'outStock'
   });
 
-  // Helper to handle Checkbox changes
+  // Notification state
+  const [notifications, setNotifications] = useState([]);
+
+  const addNotification = (message, type = "success", ttl = 3000) => {
+    const id = Date.now() + Math.random();
+    setNotifications((prev) => [...prev, { id, message, type }]);
+    // auto-remove after ttl
+    setTimeout(() => {
+      setNotifications((prev) => prev.filter((n) => n.id !== id));
+    }, ttl);
+  };
+
+  const removeNotification = (id) =>
+    setNotifications((prev) => prev.filter((n) => n.id !== id));
+
+  // Helper to handle Checkbox changes (multi-select)
   const handleFilterChange = (section, value) => {
     setFilters((prev) => {
       const active = prev[section];
@@ -179,6 +195,22 @@ export default function Shop() {
         return { ...prev, [section]: active.filter((item) => item !== value) }; // Remove
       } else {
         return { ...prev, [section]: [...active, value] }; // Add
+      }
+    });
+  };
+
+  
+
+  // NEW: Category tab click should behave like tabs (single-select).
+  const handleCategoryTabClick = (catId) => {
+    setFilters((prev) => {
+      const active = prev.category;
+      if (active.includes(catId)) {
+        // clicking an active tab will deselect it (clear selection)
+        return { ...prev, category: active.filter((item) => item !== catId) };
+      } else {
+        // select only this category (single-select tab behavior)
+        return { ...prev, category: [catId] };
       }
     });
   };
@@ -236,6 +268,9 @@ export default function Shop() {
 
     // optional: open cart slider
     window.dispatchEvent(new Event("cartUpdated"));
+
+    // show notification
+    addNotification(`${product.name} added to cart`);
   };
 
   const addToWishlist = (product) => {
@@ -244,9 +279,11 @@ export default function Shop() {
     if (!wishlist.find((item) => item.id === product.id)) {
       wishlist.push(product);
       localStorage.setItem("wishlistItems", JSON.stringify(wishlist));
+      addNotification(`${product.name} added to wishlist`);
+    } else {
+      addNotification(`${product.name} is already in wishlist`, "info");
     }
   };
-
 
   // 4. SORTING LOGIC: Runs on the filtered results
   const sortedProducts = [...filteredProducts].sort((a, b) => {
@@ -281,7 +318,7 @@ export default function Shop() {
             {categories.map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => handleFilterChange("category", cat.id)}
+                onClick={() => handleCategoryTabClick(cat.id)}
                 className={`relative whitespace-nowrap px-6 py-4 text-sm font-medium transition
                   ${filters.category.includes(cat.id)
                     ? "text-black"
@@ -613,7 +650,8 @@ export default function Shop() {
         </div>
       </div>
 
-      
+      {/* Toast notifications */}
+      <Toast notifications={notifications} onClose={removeNotification} />
     </>
   );
 }

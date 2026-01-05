@@ -1,11 +1,35 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import products from "../data/products.js";
 
 function Home() {
 
     const [count, setCount] = useState();
-
     const navigate = useNavigate();
+
+    // Add to cart: store in localStorage and notify header via event
+    const addToCart = (product) => {
+        const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+        const existing = cart.find((item) => item.id === product.id);
+
+        if (existing) {
+            existing.qty += 1;
+        } else {
+            cart.push({ ...product, qty: 1 });
+        }
+
+        localStorage.setItem("cartItems", JSON.stringify(cart));
+        window.dispatchEvent(new Event("cartUpdated"));
+    };
+
+    // Add to wishlist: store in localStorage (avoid duplicates)
+    const addToWishlist = (product) => {
+        const wishlist = JSON.parse(localStorage.getItem("wishlistItems")) || [];
+        if (!wishlist.find((item) => item.id === product.id)) {
+            wishlist.push(product);
+            localStorage.setItem("wishlistItems", JSON.stringify(wishlist));
+        }
+    };
 
     return (
         <>
@@ -99,11 +123,10 @@ function Home() {
 
             <div className="container-fluid text-center text-gray-500">
                 <p>The latest trends in athletic footwear</p>
-                <p className='text-4xl text-black font-semibold py-3'>Sneakers & Kicks</p>
+                <p className="text-4xl text-black font-semibold py-3">Sneakers & Kicks</p>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 py-12 mb-5">
-
                 {/* Tabs */}
                 <div className="flex justify-center gap-10 text-sm font-medium uppercase mb-10">
                     <button className="tab-btn" data-tab="featured">Featured</button>
@@ -113,128 +136,44 @@ function Home() {
 
                 {/* Products Wrapper  */}
                 <div id="product-wrapper container-fluid">
-
                     {/* FEATURED */}
-                    <div className="max-w-7xl mx-auto px-4 tab-content grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
-                        id="featured">
-                        {/* CARD */}
-                        {/* Replace each static card with: */}
-                        <div className="border p-4 hover:shadow-lg transition cursor-pointer">
-                            <img
-                                src="src/assets/image/imgi_63_product-4_a9f5532a-47cd-4f32-8958-57ee765f0a27.png"
-                                className="mx-auto mb-4"
-                                alt="Classic White Tennis"
-                            />
-                            <p className="text-sm text-gray-500">₹25.00</p>
-                            <h3 className="font-semibold">Classic White Tennis</h3>
-                            <p className="text-gray-400 text-sm">SportyFeet</p>
-                            <hr className="my-3" />
-                            <div className="flex items-center justify-between text-sm">
-                                <button
-                                    className="hover:text-red-500 flex items-center gap-2"
-                                    onClick={(e) => {
-                                        e.preventDefault();  // Prevent navigation, do cart logic
-                                        // Your existing add to cart code here
-                                    }}
-                                >
-                                    <i className="fa-solid fa-cart-shopping"></i>
-                                    ADD TO CART
-                                </button>
-                                <div className="flex gap-3 text-base">
-                                    <i className="bi bi-eye cursor-pointer"></i>
-                                    <i className="bi bi-heart cursor-pointer"></i>
-                                    <i className="bi bi-arrows-angle-contract cursor-pointer"></i>
+                    <div className="max-w-7xl mx-auto px-4 tab-content grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="featured">
+                        {products.slice(0, 8).map((p) => (
+                            <div key={p.id} className="border p-4 hover:shadow-lg transition cursor-pointer">
+                                <img
+                                    src={p.image}
+                                    className="mx-auto mb-4"
+                                    alt={p.name}
+                                />
+                                <p className="text-sm text-gray-500">₹{p.price}.00</p>
+                                <h3 className="font-semibold">{p.name}</h3>
+                                <p className="text-gray-400 text-sm">{p.brand || "Brand"}</p>
+                                <hr className="my-3" />
+                                <div className="flex items-center justify-between text-sm">
+                                    <button
+                                        className="hover:text-red-500 flex items-center gap-2"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            addToCart(p);
+                                        }}
+                                    >
+                                        <i className="fa-solid fa-cart-shopping"></i>
+                                        ADD TO CART
+                                    </button>
+                                    <div className="flex gap-3 text-base">
+                                        <button
+                                            onClick={() => addToWishlist(p)}
+                                            className="cursor-pointer"
+                                            title="Add to wishlist"
+                                        >
+                                            <i className="bi bi-heart"></i>
+                                        </button>
+                                        <i className="bi bi-eye cursor-pointer"></i>
+                                        <i className="bi bi-arrows-angle-contract cursor-pointer"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        {/* DUPLICATE SAME CARD STRUCTURE */}
-                        <div className="border p-4 hover:shadow-lg transition cursor-pointer">
-                            <img
-                                src="src/assets/image/imgi_63_product-4_a9f5532a-47cd-4f32-8958-57ee765f0a27.png"
-                                className="mx-auto mb-4"
-                                alt="Classic White Tennis"
-                            />
-                            <p className="text-sm text-gray-500">₹25.00</p>
-                            <h3 className="font-semibold">Classic White Tennis</h3>
-                            <p className="text-gray-400 text-sm">SportyFeet</p>
-                            <hr className="my-3" />
-                            <div className="flex items-center justify-between text-sm">
-                                <button
-                                    className="hover:text-red-500 flex items-center gap-2"
-                                    onClick={(e) => {
-                                        e.preventDefault();  // Prevent navigation, do cart logic
-                                        // Your existing add to cart code here
-                                    }}
-                                >
-                                    <i className="fa-solid fa-cart-shopping"></i>
-                                    ADD TO CART
-                                </button>
-                                <div className="flex gap-3 text-base">
-                                    <i className="bi bi-eye cursor-pointer"></i>
-                                    <i className="bi bi-heart cursor-pointer"></i>
-                                    <i className="bi bi-arrows-angle-contract cursor-pointer"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="border p-4 hover:shadow-lg transition cursor-pointer">
-                            <img
-                                src="src/assets/image/imgi_63_product-4_a9f5532a-47cd-4f32-8958-57ee765f0a27.png"
-                                className="mx-auto mb-4"
-                                alt="Classic White Tennis"
-                            />
-                            <p className="text-sm text-gray-500">₹25.00</p>
-                            <h3 className="font-semibold">Classic White Tennis</h3>
-                            <p className="text-gray-400 text-sm">SportyFeet</p>
-                            <hr className="my-3" />
-                            <div className="flex items-center justify-between text-sm">
-                                <button
-                                    className="hover:text-red-500 flex items-center gap-2"
-                                    onClick={(e) => {
-                                        e.preventDefault();  // Prevent navigation, do cart logic
-                                        // Your existing add to cart code here
-                                    }}
-                                >
-                                    <i className="fa-solid fa-cart-shopping"></i>
-                                    ADD TO CART
-                                </button>
-                                <div className="flex gap-3 text-base">
-                                    <i className="bi bi-eye cursor-pointer"></i>
-                                    <i className="bi bi-heart cursor-pointer"></i>
-                                    <i className="bi bi-arrows-angle-contract cursor-pointer"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="border p-4 hover:shadow-lg transition cursor-pointer">
-                            <img
-                                src="src/assets/image/imgi_63_product-4_a9f5532a-47cd-4f32-8958-57ee765f0a27.png"
-                                className="mx-auto mb-4"
-                                alt="Classic White Tennis"
-                            />
-                            <p className="text-sm text-gray-500">₹25.00</p>
-                            <h3 className="font-semibold">Classic White Tennis</h3>
-                            <p className="text-gray-400 text-sm">SportyFeet</p>
-                            <hr className="my-3" />
-                            <div className="flex items-center justify-between text-sm">
-                                <button
-                                    className="hover:text-red-500 flex items-center gap-2"
-                                    onClick={(e) => {
-                                        e.preventDefault();  // Prevent navigation, do cart logic
-                                        // Your existing add to cart code here
-                                    }}
-                                >
-                                    <i className="fa-solid fa-cart-shopping"></i>
-                                    ADD TO CART
-                                </button>
-                                <div className="flex gap-3 text-base">
-                                    <i className="bi bi-eye cursor-pointer"></i>
-                                    <i className="bi bi-heart cursor-pointer"></i>
-                                    <i className="bi bi-arrows-angle-contract cursor-pointer"></i>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>
