@@ -203,7 +203,7 @@ function Home() {
                                 keep your feet happy all day long.
                             </p>
 
-                            <button className="mt-6 bg-pink-500 hover:bg-black transition px-6 py-3 text-white text-sm md:text-base font-medium">
+                            <button className="mt-6 bg-pink-500 hover:bg-black transition px-8 py-3 text-white text-sm md:text-base font-medium">
                                 Shop Now
                             </button>
                         </div>
