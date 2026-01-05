@@ -1,11 +1,21 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import products from "../data/products.js";
+import Toast from "../Components/Toast.jsx";
 
 function Home() {
 
     const [count, setCount] = useState();
+    const [notifications, setNotifications] = useState([]);
     const navigate = useNavigate();
+
+    const addNotification = (message, type = "success", ttl = 3000) => {
+        const id = Date.now() + Math.random();
+        setNotifications((prev) => [...prev, { id, message, type }]);
+        setTimeout(() => {
+            setNotifications((prev) => prev.filter((n) => n.id !== id));
+        }, ttl);
+    };
 
     // Add to cart: store in localStorage and notify header via event
     const addToCart = (product) => {
@@ -20,6 +30,7 @@ function Home() {
 
         localStorage.setItem("cartItems", JSON.stringify(cart));
         window.dispatchEvent(new Event("cartUpdated"));
+        addNotification(`${product.name} added to cart`, "success");
     };
 
     // Add to wishlist: store in localStorage (avoid duplicates)
@@ -28,11 +39,22 @@ function Home() {
         if (!wishlist.find((item) => item.id === product.id)) {
             wishlist.push(product);
             localStorage.setItem("wishlistItems", JSON.stringify(wishlist));
+            window.dispatchEvent(new Event("wishlistUpdated"));
+            addNotification(`${product.name} added to wishlist`, "success");
+        } else {
+            addNotification(`${product.name} is already in wishlist`, "info");
         }
     };
 
     return (
         <>
+            {/* Toast notifications for product wrapper actions */}
+            <Toast
+                notifications={notifications}
+                onClose={(id) =>
+                    setNotifications((prev) => prev.filter((n) => n.id !== id))
+                }
+            />
             <div className="bgimg1 w-full">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px] items-center">
@@ -107,9 +129,7 @@ function Home() {
                                 <p className="text-3xl font-semibold py-4 leading-tight">
                                     Kid <br /> Collection
                                 </p>
-                                <a
-                                    href="#"
-                                    className="text-pink-500 border-b border-pink-500 font-medium inline-block"
+                                <a href="#" className="text-pink-500 border-b border-pink-500 font-medium inline-block"
                                 >
                                     SHOP NOW
                                 </a>
@@ -139,7 +159,11 @@ function Home() {
                     {/* FEATURED */}
                     <div className="max-w-7xl mx-auto px-4 tab-content grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="featured">
                         {products.slice(0, 8).map((p) => (
-                            <div key={p.id} className="border p-4 hover:shadow-lg transition cursor-pointer">
+                            <div
+                                key={p.id}
+                                className="border p-4 hover:shadow-lg transition cursor-pointer"
+                                onClick={() => navigate(`/product/${p.id}`)}
+                            >
                                 <img
                                     src={p.image}
                                     className="mx-auto mb-4"
@@ -149,7 +173,10 @@ function Home() {
                                 <h3 className="font-semibold">{p.name}</h3>
                                 <p className="text-gray-400 text-sm">{p.brand || "Brand"}</p>
                                 <hr className="my-3" />
-                                <div className="flex items-center justify-between text-sm">
+                                <div
+                                    className="flex items-center justify-between text-sm"
+                                    onClick={(e) => e.stopPropagation()}
+                                >
                                     <button
                                         className="hover:text-red-500 flex items-center gap-2"
                                         onClick={(e) => {
@@ -166,7 +193,8 @@ function Home() {
                                             className="cursor-pointer"
                                             title="Add to wishlist"
                                         >
-                                            <i className="bi bi-heart"></i>
+                                            {/* Filled heart icon with fixed color */}
+                                            <i className="bi bi-heart-fill text-red-500"></i>
                                         </button>
                                         <i className="bi bi-eye cursor-pointer"></i>
                                         <i className="bi bi-arrows-angle-contract cursor-pointer"></i>
@@ -525,78 +553,8 @@ function Home() {
                 </div>
             </div> */}
 
-            <section className="max-w-7xl mx-auto px-4 py-16">
-                {/* Header */}
-                <div className="mb-12">
-                    <h2 className="text-4xl font-bold mb-3">Recently Our Posts</h2>
-                    <p className="text-gray-500 max-w-xl">
-                        Sit amet consec tetur adipisicing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.
-                    </p>
-                </div>
+            
 
-                {/* Layout */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    {/* Left Featured Post */}
-                    <div className="lg:col-span-2 relative rounded-lg overflow-hidden">
-                        <img src="src/assets/image/blog-2.png" alt="Featured Post" className="w-full h-full object-cover" />
-                        <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-6">
-                            <div className="text-sm text-gray-200 flex gap-4 mb-2">
-                                <span>Oct 28 2024</span>
-                                <span>0 comments</span>
-                            </div>
-                            <h3 className="text-2xl md:text-3xl font-bold text-white">
-                                The Future Of Footwear: A Look Ahead
-                            </h3>
-                        </div>
-                    </div>
-
-                    {/* Right Side Posts */}
-                    <div className="flex flex-col gap-6">
-                        {/* Post Item */}
-                        <div className="flex gap-4">
-                            <img src="" alt="" className="w-28 h-24 object-cover rounded-md" />
-                            <div>
-                                <div className="text-xs text-gray-400 flex gap-3 mb-1">
-                                    <span>Oct 28 2024</span>
-                                    <span>0 comments</span>
-                                </div>
-                                <h4 className="font-semibold leading-snug">
-                                    Eco-Friendly Footwear: Sustainable Style
-                                </h4>
-                            </div>
-                        </div>
-
-                        {/* Post Item */}
-                        <div className="flex gap-4">
-                            <img src="" alt="" className="w-28 h-24 object-cover rounded-md" />
-                            <div>
-                                <div className="text-xs text-gray-400 flex gap-3 mb-1">
-                                    <span>Oct 17 2024</span>
-                                    <span>0 comments</span>
-                                </div>
-                                <h4 className="font-semibold leading-snug">
-                                    The Ultimate Guide to Sneaker Care
-                                </h4>
-                            </div>
-                        </div>
-
-                        {/* Post Item */}
-                        <div className="flex gap-4">
-                            <img src="" alt="" className="w-28 h-24 object-cover rounded-md" />
-                            <div>
-                                <div className="text-xs text-gray-400 flex gap-3 mb-1">
-                                    <span>Oct 17 2024</span>
-                                    <span>0 comments</span>
-                                </div>
-                                <h4 className="font-semibold leading-snug">
-                                    How to Style Your Favorite Sneakers
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <div className="relative max-w-7xl mx-auto px-4" style={{ top: "-100" }}>
                 <div className="flex flex-col md:flex-row overflow-hidden rounded-md">

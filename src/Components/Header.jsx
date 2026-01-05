@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const [wishlistCount, setWishlistCount] = useState(0);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // ✅ Mobile menu state
 
@@ -15,9 +16,22 @@ export default function Header() {
       const items = JSON.parse(localStorage.getItem("cartItems")) || [];
       setCartItems(items);
     };
+
+    const updateWishlist = () => {
+      const items = JSON.parse(localStorage.getItem("wishlistItems")) || [];
+      setWishlistCount(items.length);
+    };
+
     updateCart();
+    updateWishlist();
+
     window.addEventListener("cartUpdated", updateCart);
-    return () => window.removeEventListener("cartUpdated", updateCart);
+    window.addEventListener("wishlistUpdated", updateWishlist);
+
+    return () => {
+      window.removeEventListener("cartUpdated", updateCart);
+      window.removeEventListener("wishlistUpdated", updateWishlist);
+    };
   }, []);
 
   const updateQuantity = (id, type) => {
@@ -88,29 +102,55 @@ export default function Header() {
 
             {/* MENU LINKS */}
             <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
-              <li className="hover:border-red-500 hover:border-b-2 pb-1 hover:text-pink-500"><Link to="/">Home</Link></li>
-              <li className="hover:border-red-500 hover:border-b-2 pb-1 hover:text-pink-500"><Link to="/shop">Shop</Link></li>
-              <li className="hover:border-red-500 hover:border-b-2 pb-1 hover:text-pink-500">Product</li>
-              <li className="hover:border-red-500 hover:border-b-2 pb-1 hover:text-pink-500"><Link to="/blog">Blog</Link></li>
-              <li className="hover:border-red-500 hover:border-b-2 pb-1 hover:text-pink-500">Pages</li>
-              <li className="hover:border-red-500 hover:border-b-2 pb-1 hover:text-pink-500">Buy Now</li>
+              {[
+                { to: "/", label: "Home" },
+                { to: "/shop", label: "Shop" },
+                { to: null, label: "Product" },
+                { to: "/blog", label: "Blog" },
+                { to: null, label: "Pages" },
+                { to: null, label: "Buy Now" },
+              ].map((item) => (
+                <li
+                  key={item.label}
+                  className="group relative pb-1 text-gray-800 transition-colors duration-200 hover:text-pink-500"
+                >
+                  {item.to ? (
+                    <Link to={item.to} className="relative">
+                      <span>{item.label}</span>
+                      <span className="pointer-events-none absolute left-0 -bottom-0.5 h-[2px] w-0 bg-pink-500 transition-all duration-200 group-hover:w-full"></span>
+                    </Link>
+                  ) : (
+                    <button className="relative">
+                      <span>{item.label}</span>
+                      <span className="pointer-events-none absolute left-0 -bottom-0.5 h-[2px] w-0 bg-pink-500 transition-all duration-200 group-hover:w-full"></span>
+                    </button>
+                  )}
+                </li>
+              ))}
             </ul>
 
             {/* ICONS */}
             <div className="hidden md:flex items-center gap-5 text-lg">
-              <i className="fas fa-search cursor-pointer hover:text-red-500"></i>
+              {/* Static filled icons (no hover animation) */}
+              <i className="fas fa-search cursor-pointer text-gray-700"></i>
               <i
-                className="far fa-user cursor-pointer hover:text-red-500"
+                className="far fa-user cursor-pointer text-gray-700"
                 onClick={() => setIsLoginOpen(true)}
               ></i>
               <div className="relative cursor-pointer">
                 <Link to="/wishlist">
-                  <i className="far fa-heart hover:text-red-500"></i>
+                  {/* Filled heart icon with fixed color */}
+                  <i className="fas fa-heart text-red-500"></i>
                 </Link>
+                {wishlistCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                    {wishlistCount}
+                  </span>
+                )}
               </div>
               <div className="relative cursor-pointer group">
                 <i
-                  className="fas fa-shopping-bag hover:text-red-500"
+                  className="fas fa-shopping-bag text-gray-700"
                   onClick={() => setIsCartOpen(true)}
                 ></i>
                 <span className="absolute -top-2 -right-2 bg-gray-700 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">

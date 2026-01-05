@@ -279,6 +279,7 @@ export default function Shop() {
     if (!wishlist.find((item) => item.id === product.id)) {
       wishlist.push(product);
       localStorage.setItem("wishlistItems", JSON.stringify(wishlist));
+      window.dispatchEvent(new Event("wishlistUpdated"));
       addNotification(`${product.name} added to wishlist`);
     } else {
       addNotification(`${product.name} is already in wishlist`, "info");

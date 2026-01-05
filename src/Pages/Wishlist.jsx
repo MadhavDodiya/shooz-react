@@ -14,6 +14,7 @@ export default function Wishlist() {
     const updated = wishlistItems.filter(item => item.id !== productId);
     setWishlistItems(updated);
     localStorage.setItem('wishlistItems', JSON.stringify(updated));
+    window.dispatchEvent(new Event('wishlistUpdated'));
   };
 
   const addToCart = (product) => {
@@ -44,8 +45,9 @@ export default function Wishlist() {
 
         {wishlistItems.length === 0 ? (
           <div className="text-center py-24">
-            <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
-              <i className="fas fa-heart text-3xl text-gray-400"></i>
+          <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
+              {/* Filled heart icon with color */}
+              <i className="fas fa-heart text-3xl text-red-400"></i>
             </div>
             <h3 className="text-2xl font-semibold text-gray-900 mb-2">Wishlist is Empty</h3>
             <p className="text-gray-500 mb-8">You have no items in your wishlist.</p>
@@ -76,7 +78,7 @@ export default function Wishlist() {
                     </button>
                     <button 
                       onClick={() => removeFromWishlist(product.id)}
-                      className="p-3 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition"
+                      className="p-3 text-red-500 rounded-lg"
                       title="Remove from wishlist"
                     >
                       <i className="fas fa-trash text-xl"></i>
