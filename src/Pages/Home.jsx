@@ -164,26 +164,13 @@ function Home() {
                                 className="border p-4 hover:shadow-lg transition cursor-pointer"
                                 onClick={() => navigate(`/product/${p.id}`)}
                             >
-                                <img
-                                    src={p.image}
-                                    className="mx-auto mb-4"
-                                    alt={p.name}
-                                />
+                                <img src={p.image} className="mx-auto mb-4" alt={p.name}/>
                                 <p className="text-sm text-gray-500">₹{p.price}.00</p>
                                 <h3 className="font-semibold">{p.name}</h3>
                                 <p className="text-gray-400 text-sm">{p.brand || "Brand"}</p>
                                 <hr className="my-3" />
-                                <div
-                                    className="flex items-center justify-between text-sm"
-                                    onClick={(e) => e.stopPropagation()}
-                                >
-                                    <button
-                                        className="hover:text-red-500 flex items-center gap-2"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            addToCart(p);
-                                        }}
-                                    >
+                                <div className="flex items-center justify-between text-sm" onClick={(e) => e.stopPropagation()}> <button className="hover:text-red-500 flex items-center gap-2"
+                                        onClick={(e) => { e.preventDefault(); addToCart(p);}}>
                                         <i className="fa-solid fa-cart-shopping"></i>
                                         ADD TO CART
                                     </button>

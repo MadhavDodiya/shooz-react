@@ -4,6 +4,11 @@ export default [
     name: "Athletic Pro",
     price: 120,
     image: "src/assets/image/imgi_49_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.jpg",
+    images: [
+      "",
+      "",
+      ""
+    ],
     category: "athletic",
     brand: "Nike",
     color: "Red",
@@ -55,4 +60,5 @@ export default [
     inStock: true,
     description: "Easy slip-on sandals for the beach and pool.",
   }
+
 ];

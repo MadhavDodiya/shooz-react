@@ -1,133 +1,184 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import products from "../data/products.js";
+import products from "../data/products";
 
 function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const product = products.find((p) => String(p.id) === String(id));
+  const product = products.find(p => String(p.id) === id);
 
-  const addToCart = (productData) => {
+  const [activeImg, setActiveImg] = useState(product?.images?.[0] || product.image);
+  const [size, setSize] = useState("S");
+  const [qty, setQty] = useState(1);
+  const [open, setOpen] = useState(null);
+
+  if (!product) {
+    return <div className="p-10">Product not found</div>;
+  }
+
+  /* ---------------- CART ---------------- */
+  const addToCart = () => {
     const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
-    const existing = cart.find((item) => item.id === productData.id);
+    const exist = cart.find(
+      i => i.id === product.id && i.size === size
+    );
 
-    if (existing) {
-      existing.qty += 1;
+    if (exist) {
+      exist.qty += qty;
     } else {
-      cart.push({ ...productData, qty: 1 });
+      cart.push({ ...product, size, qty });
     }
 
     localStorage.setItem("cartItems", JSON.stringify(cart));
     window.dispatchEvent(new Event("cartUpdated"));
   };
 
-  const addToWishlist = (productData) => {
+  const buyNow = () => {
+    addToCart();
+    navigate("/cart"); // jo cart page hoy to
+  };
+
+  const addWishlist = () => {
     const wishlist = JSON.parse(localStorage.getItem("wishlistItems")) || [];
-    if (!wishlist.find((item) => item.id === productData.id)) {
-      wishlist.push(productData);
+    if (!wishlist.find(i => i.id === product.id)) {
+      wishlist.push(product);
       localStorage.setItem("wishlistItems", JSON.stringify(wishlist));
       window.dispatchEvent(new Event("wishlistUpdated"));
     }
   };
 
-  if (!product) {
-    return (
-      <div className="max-w-5xl mx-auto px-4 py-16">
-        <p className="text-xl font-semibold mb-4">Product not found</p>
-        <button
-          className="px-6 py-2 bg-black text-white text-sm font-medium"
-          onClick={() => navigate(-1)}
-        >
-          Go Back
-        </button>
-      </div>
-    );
-  }
-
   return (
-    <div className="max-w-5xl mx-auto px-4 py-12">
-      <button
-        className="mb-6 text-sm text-gray-600 hover:text-black"
-        onClick={() => navigate(-1)}
-      >
-        ← Back
-      </button>
+    <div className="max-w-7xl mx-auto px-4 py-10">
+      {/* Breadcrumb */}
+      <p className="text-sm text-gray-500 mb-6">
+        Home / {product.name}
+      </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-        <div className="border p-4">
-          <img
-            src={product.image.startsWith('/') ? product.image : `/${product.image}`}
-            alt={product.name}
-            className="w-full h-auto object-contain"
-            onError={(e) => {
-              console.error('Image failed to load:', product.image);
-              // Try alternative path format - remove leading slash if present, then add it
-              const currentSrc = e.target.src;
-              const basePath = product.image.replace(/^\/+/, ''); // Remove any leading slashes
-              const altPath = `/${basePath}`;
-              // Only try alternative if it's different from current src
-              if (currentSrc !== altPath && !currentSrc.includes(altPath)) {
-                e.target.src = altPath;
-              } else {
-                // If still fails, try without leading slash
-                const fallbackPath = basePath;
-                if (currentSrc !== fallbackPath) {
-                  e.target.src = fallbackPath;
-                }
-              }
-            }}
-          />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* LEFT IMAGE */}
+        <div>
+          <div className="bg-gray-50 p-6 rounded">
+            <img
+              src={activeImg}
+              alt={product.name}
+              className="w-full object-contain"
+            />
+          </div>
+
+          {/* Thumbnails */}
+          <div className="flex gap-3 mt-4">
+            {(product.images || [product.image]).map((img, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveImg(img)}
+                className={`border p-1 ${
+                  activeImg === img ? "border-black" : "border-gray-300"
+                }`}
+              >
+                <img src={img} className="w-16 h-16 object-contain" />
+              </button>
+            ))}
+          </div>
         </div>
 
+        {/* RIGHT DETAILS */}
         <div>
-          <p className="text-sm text-gray-500 mb-2">
-            {product.brand} • {product.category}
-          </p>
-          <h1 className="text-2xl sm:text-3xl font-semibold mb-3">
+          <h1 className="text-3xl font-semibold mb-2">
             {product.name}
           </h1>
-          <p className="text-xl font-semibold mb-4">₹{product.price}.00</p>
+          <p className="text-xl font-semibold mb-4">
+            ₹{product.price}.00
+          </p>
 
-          {product.description && (
-            <p className="text-sm text-gray-600 mb-6">{product.description}</p>
-          )}
-
-          <div className="grid grid-cols-2 gap-4 text-sm mb-6">
-            <div>
-              <p className="text-gray-400">Type</p>
-              <p className="font-medium">{product.type}</p>
-            </div>
-            <div>
-              <p className="text-gray-400">Size</p>
-              <p className="font-medium">{product.size}</p>
-            </div>
-            <div>
-              <p className="text-gray-400">Color</p>
-              <p className="font-medium">{product.color}</p>
-            </div>
-            <div>
-              <p className="text-gray-400">Material</p>
-              <p className="font-medium">{product.material}</p>
+          {/* SIZE */}
+          <div className="mb-6">
+            <p className="text-sm mb-2">
+              Size: <b>{size}</b>
+            </p>
+            <div className="flex gap-3">
+              {["S", "M", "L"].map(s => (
+                <button
+                  key={s}
+                  onClick={() => setSize(s)}
+                  className={`w-10 h-10 border ${
+                    size === s ? "border-black" : "border-gray-300"
+                  }`}
+                >
+                  {s}
+                </button>
+              ))}
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-4 items-center">
+          {/* QTY + BUTTONS */}
+          <div className="flex flex-wrap items-center gap-4 mb-6">
+            <div className="flex border">
+              <button
+                onClick={() => qty > 1 && setQty(qty - 1)}
+                className="w-10 h-10"
+              >
+                −
+              </button>
+              <span className="w-10 h-10 flex items-center justify-center">
+                {qty}
+              </span>
+              <button
+                onClick={() => setQty(qty + 1)}
+                className="w-10 h-10"
+              >
+                +
+              </button>
+            </div>
+
             <button
-              className="bg-pink-500 hover:bg-black transition px-8 py-2 text-white text-sm font-medium"
-              onClick={() => addToCart(product)}
+              onClick={addToCart}
+              className="bg-[#b14452] text-white px-8 py-3 text-sm"
             >
-              Add to Cart
+              ADD TO CART
             </button>
+
             <button
-              className="flex items-center gap-2 text-sm text-red-500"
-              onClick={() => addToWishlist(product)}
+              onClick={buyNow}
+              className="bg-black text-white px-8 py-3 text-sm"
             >
-              {/* Filled heart icon with fixed color */}
-              <i className="bi bi-heart-fill text-lg"></i>
-              Add to Wishlist
+              BUY IT NOW
             </button>
           </div>
+
+          {/* WISHLIST */}
+          <div className="flex gap-6 text-sm mb-8">
+            <button onClick={addWishlist}>♡ Add To Wishlist</button>
+            <button>⇄ Compare</button>
+          </div>
+
+          {/* INFO */}
+          <div className="text-sm text-gray-600 space-y-2 mb-6">
+            <p>Vendor: <b>{product.brand}</b></p>
+            <p>Type: Sneakers</p>
+            <p>Availability: Available</p>
+          </div>
+
+          {/* ACCORDION */}
+          {[
+            { title: "Shipping information", content: "Free shipping over ₹1000." },
+            { title: "Care Guide", content: "Hand wash only." }
+          ].map((item, i) => (
+            <div key={i} className="border-t py-4">
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                className="w-full flex justify-between"
+              >
+                {item.title}
+                <span>{open === i ? "−" : "+"}</span>
+              </button>
+              {open === i && (
+                <p className="text-sm text-gray-600 mt-2">
+                  {item.content}
+                </p>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -135,5 +186,3 @@ function ProductDetail() {
 }
 
 export default ProductDetail;
-
-
