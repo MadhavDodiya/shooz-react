@@ -165,6 +165,8 @@ function Home() {
                                 onClick={() => navigate(`/product/${p.id}`)}
                             >
                                 <img src={p.image} className="mx-auto mb-4" alt={p.name}/>
+                                {console.log(p.image)}
+                                {console.log(p)}
                                 <p className="text-sm text-gray-500">₹{p.price}.00</p>
                                 <h3 className="font-semibold">{p.name}</h3>
                                 <p className="text-gray-400 text-sm">{p.brand || "Brand"}</p>

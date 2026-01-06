@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useParams, useNavigate } from "react-router-dom";
 import products from "../data/products";
 const TABS = ["Description", "Material", "Reviews"];
@@ -57,7 +58,9 @@ function ProductDetail() {
       <div className="max-w-7xl mx-auto px-4 py-10">
         {/* Breadcrumb */}
         <p className="text-sm text-gray-500 mb-6">
-          Home / {product.name}
+          <Link to="/" className="hover:text-black transition">
+            Home
+          </Link>{" "}/ {product.name}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -126,25 +129,16 @@ function ProductDetail() {
                 <span className="w-10 h-10 flex items-center justify-center">
                   {qty}
                 </span>
-                <button
-                  onClick={() => setQty(qty + 1)}
-                  className="w-10 h-10"
-                >
+                <button onClick={() => setQty(qty + 1)} className="w-10 h-10">
                   +
                 </button>
               </div>
 
-              <button
-                onClick={addToCart}
-                className="bg-[#b14452] text-white px-8 py-3 text-sm"
-              >
+              <button onClick={addToCart} className="bg-[#b14452] text-white px-8 py-3 text-sm">
                 ADD TO CART
               </button>
 
-              <button
-                onClick={buyNow}
-                className="bg-black text-white px-8 py-3 text-sm"
-              >
+              <button onClick={buyNow} className="bg-black text-white px-8 py-3 text-sm">
                 BUY IT NOW
               </button>
             </div>
@@ -251,7 +245,7 @@ function ProductDetail() {
                   />
                 </div>
                 <p className="mb-1 fw-medium">Breathable Mesh Slip-Ons</p>
-                <p className="mb-1">$25.00</p>
+                <p className="mb-1">₹25.00</p>
                 <a href="#" className="text-muted text-decoration-none">
                   + Add to Cart
                 </a>
@@ -268,9 +262,9 @@ function ProductDetail() {
                 </div>
                 <p className="mb-1 fw-medium">Chunky Platform Sandals</p>
                 <p className="mb-1">
-                  $25.00{" "}
+                  ₹25.00{" "}
                   <span className="text-muted text-decoration-line-through">
-                    $32.00
+                    ₹32.00
                   </span>
                 </p>
                 <a href="#" className="text-muted text-decoration-none">
