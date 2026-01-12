@@ -269,7 +269,7 @@ function Home() {
 
                         {/* CARD */}
                         <div className="relative flex justify-center cursor-pointer group">
-                            <img src="src/assets/image/imgi_31_col-5.png" alt="" className="w-full object-cover" />
+                            <img src="../src/assets/image/imgi_31_col-5.png" alt="" className="w-full object-cover" />
                             <button className="absolute bottom-6 bg-gray-50 text-black px-6 py-2 text-sm font-medium 
           group-hover:bg-pink-500 group-hover:text-white transition">
                                 Athletic Footwear 8
@@ -278,7 +278,7 @@ function Home() {
 
                         {/* CARD */}
                         <div className="relative flex justify-center cursor-pointer group">
-                            <img src="src/assets/image/imgi_32_col-6.png" alt="" className="w-full object-cover" />
+                            <img src="../src/assets/image/imgi_32_col-6.png" alt="" className="w-full object-cover" />
                             <button className="absolute bottom-6 bg-gray-50 text-black px-6 py-2 text-sm font-medium 
           group-hover:bg-pink-500 group-hover:text-white transition">
                                 Luxury Leather Shoes 8
@@ -287,7 +287,7 @@ function Home() {
 
                         {/* CARD */}
                         <div className="relative flex justify-center cursor-pointer group">
-                            <img src="src/assets/image/imgi_29_col-1.png" alt="" className="w-full object-cover" />
+                            <img src="../src/assets/image/imgi_29_col-1.png" alt="" className="w-full object-cover" />
                             <button className="absolute bottom-6 bg-gray-50 text-black px-6 py-2 text-sm font-medium 
           group-hover:bg-pink-500 group-hover:text-white transition">
                                 Sustainable Footwear 8
@@ -296,7 +296,7 @@ function Home() {
 
                         {/* CARD */}
                         <div className="relative flex justify-center cursor-pointer group">
-                            <img src="src/assets/image/imgi_30_col-2.png" alt="" className="w-full object-cover" />
+                            <img src="../src/assets/image/imgi_30_col-2.png" alt="" className="w-full object-cover" />
                             <button className="absolute bottom-6 bg-gray-50 text-black px-6 py-2 text-sm font-medium 
           group-hover:bg-pink-500 group-hover:text-white transition">
                                 Sandals & Slides 8
@@ -384,7 +384,7 @@ function Home() {
                             {/* ITEM */}
                             <div className="flex gap-4 items-start border-b border-gray-300 pb-4">
                                 <img
-                                    src="src/assets/image/product-3_be4a38ab-621f-46d5-a126-3488687e10f6.avif"
+                                    src="../src/assets/image/product-3_be4a38ab-621f-46d5-a126-3488687e10f6.avif"
                                     alt=""
                                     className="w-20 h-20 object-cover"
                                 />
@@ -399,7 +399,7 @@ function Home() {
                             {/* ITEM */}
                             <div className="flex gap-4 items-start border-b border-gray-300 pb-4">
                                 <img
-                                    src="src/assets/image/product-17.avif"
+                                    src="../src/assets/image/product-17.avif"
                                     alt=""
                                     className="w-20 h-20 object-cover"
                                 />
@@ -414,7 +414,7 @@ function Home() {
                             {/* ITEM */}
                             <div className="flex gap-4 items-start">
                                 <img
-                                    src="src/assets/image/imgi_58_product-18_31b99edb-0192-4e99-a026-cbd70e3a5624.jpg"
+                                    src="../src/assets/image/imgi_58_product-18_31b99edb-0192-4e99-a026-cbd70e3a5624.jpg"
                                     alt=""
                                     className="w-20 h-20 object-cover"
                                 />
@@ -465,7 +465,7 @@ function Home() {
                         {/* RIGHT IMAGE */}
                         <div className="flex justify-center">
                             <img
-                                src="src/assets/image/imgi_38_video-pic.png"
+                                src="../src/assets/image/imgi_38_video-pic.png"
                                 alt="Shoes"
                                 className="w-full max-w-md lg:max-w-full object-contain"
                             />
@@ -498,16 +498,16 @@ function Home() {
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-10 items-center justify-items-center">
 
                         {[
-                            "imgi_39_text-logo-1.png",
-                            "imgi_40_text-logo-2.png",
-                            "imgi_41_text-logo-3.png",
-                            "imgi_42_text-logo-11.png",
-                            "imgi_43_text-logo-5.png",
-                            "imgi_44_text-logo-6.png",
-                            "imgi_45_text-logo-7.png",
-                            "imgi_46_text-logo-8.png",
-                            "imgi_47_text-logo-9.png",
-                            "imgi_48_text-logo-10.png",
+                            "../imgi_39_text-logo-1.png",
+                            "../imgi_40_text-logo-2.png",
+                            "../imgi_41_text-logo-3.png",
+                            "../imgi_42_text-logo-11.png",
+                            "../imgi_43_text-logo-5.png",
+                            "../imgi_44_text-logo-6.png",
+                            "../imgi_45_text-logo-7.png",
+                            "../imgi_46_text-logo-8.png",
+                            "../imgi_47_text-logo-9.png",
+                            "../imgi_48_text-logo-10.png",
                         ].map((img, index) => (
                             <div
                                 key={index}
@@ -562,7 +562,7 @@ function Home() {
 
                     {/* Right */}
                     <div className="flex-1">
-                        <img src="src/assets/image/newslatter-image.jpg" alt="Sneaker" className="w-full h-64 md:h-full object-cover" />
+                        <img src="../src/assets/image/newslatter-image.jpg" alt="Sneaker" className="w-full h-64 md:h-full object-cover" />
                     </div>
                 </div>
             </div>
