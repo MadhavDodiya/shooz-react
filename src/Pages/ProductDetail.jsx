@@ -281,7 +281,7 @@ function ProductDetail() {
                   {/* PRODUCT 1 */}
                   <div className="mb-5">
                     <div className="bg-light p-4 text-center mb-2">
-                      <img src="../src/assets/image/imgi_96_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" alt="" className="img-fluid" />
+                      <img src="../assets/image/imgi_96_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.png" alt="" className="img-fluid" />
                     </div>
                     <p className="mb-1 fw-medium">Breathable Mesh Slip-Ons</p>
                     <p className="mb-1">₹25.00</p>
@@ -295,7 +295,7 @@ function ProductDetail() {
                   {/* PRODUCT 1 */}
                   <div className="mb-5">
                     <div className="bg-light p-4 text-center mb-2">
-                      <img src="../src/assets/image/imgi_96_product-8_c70f2fa3-a720-4f73-a2b0-0e0e01967d19.jpg" alt="" className="img-fluid" />
+                      <img src="../assets/image/imgi_96_product-8_c70f2fa3-a720-4f73-a2b0-0e0e01967d19.jpg" alt="" className="img-fluid" />
                     </div>
                     <p className="mb-1 fw-medium">Breathable Mesh Slip-Ons</p>
                     <p className="mb-1">₹25.00</p>
@@ -468,7 +468,7 @@ function ProductDetail() {
               <span class="absolute top-4 left-4 bg-[#86d7c7] text-white px-3 py-1 text-xs rounded-md">
                 -21%
               </span>
-              <img src="../src/assets/image/imgi_51_product-2_f21b4635-7aa2-414f-b44c-6ce8171394ed.jpg" alt="" class="w-full h-auto object-contain" />
+              <img src="../assets/image/imgi_51_product-2_f21b4635-7aa2-414f-b44c-6ce8171394ed.jpg" alt="" class="w-full h-auto object-contain" />
             </div>
             <div class="mt-3">
               <p class="text-[15px] font-semibold">$25.00 <span class="line-through text-gray-500 text-sm">$32.00</span></p>
@@ -479,7 +479,7 @@ function ProductDetail() {
 
           <div>
             <div class="bg-[#faf7f3] p-4">
-              <img src="../src/assets/image/imgi_52_product-22.jpg" alt="" class="w-full h-auto object-contain" />
+              <img src="../assets/image/imgi_52_product-22.jpg" alt="" class="w-full h-auto object-contain" />
             </div>
             <div class="mt-3">
               <p class="text-[15px] font-semibold">$15.00</p>
@@ -490,7 +490,7 @@ function ProductDetail() {
 
           <div>
             <div class="bg-[#faf7f3] p-4">
-              <img src="../src/assets/image/imgi_53_product-3_be4a38ab-621f-46d5-a126-3488687e10f6.jpg" alt="" class="w-full h-auto object-contain" />
+              <img src="../assets/image/imgi_53_product-3_be4a38ab-621f-46d5-a126-3488687e10f6.jpg" alt="" class="w-full h-auto object-contain" />
             </div>
             <div class="mt-3">
               <p class="text-[15px] font-semibold">$25.00</p>
@@ -501,7 +501,7 @@ function ProductDetail() {
 
           <div>
             <div class="bg-[#faf7f3] p-4">
-              <img src="../src/assets/image/imgi_54_product-26_a72ab182-4323-4754-aa41-d64401571e17.jpg" alt="" class="w-full h-auto object-contain" />
+              <img src="../assets/image/imgi_54_product-26_a72ab182-4323-4754-aa41-d64401571e17.jpg" alt="" class="w-full h-auto object-contain" />
             </div>
             <div class="mt-3">
               <p class="text-[15px] font-semibold">$25.00</p>

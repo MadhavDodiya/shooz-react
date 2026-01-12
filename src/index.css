@@ -14,7 +14,7 @@
 
 /* Background Images */
 .bgimg1 {
-  background-image: url("../src/assets/image/imgi_141_banner-2.png");
+  background-image: url("../assets/image/imgi_141_banner-2.png");
   height: 500px;
   width: 100%;
   background-position: center;
@@ -23,7 +23,7 @@
 }
 
 .bgimg2 {
-  background-image: url("../src/assets/image/imgi_9_grid-three-1.png");
+  background-image: url("../assets/image/imgi_9_grid-three-1.png");
   height: 300px;
   background-position: center;
   background-repeat: no-repeat;
@@ -31,7 +31,7 @@
 }
 
 .bgimg3 {
-  background-image: url("../src/assets/image/imgi_10_grid-three-3.png");
+  background-image: url("../assets/image/imgi_10_grid-three-3.png");
   height: 300px;
   background-position: center;
   background-repeat: no-repeat;
@@ -39,7 +39,7 @@
 }
 
 .bgimg4 {
-  background-image: url("../src/assets/image/imgi_11_grid-three-2.png");
+  background-image: url("../assets/image/imgi_11_grid-three-2.png");
   height: 300px;
   background-position: center;
   background-repeat: no-repeat;
@@ -47,7 +47,7 @@
 }
 
 .bgimg5 {
-  background-image: url("../src/assets/image/imgi_143_wide-banner.png");
+  background-image: url("../assets/image/imgi_143_wide-banner.png");
   height: 500px;
   width: 100%;
   background-position: center;
@@ -56,7 +56,7 @@
 }
 
 .bgimg6 {
-  background-image: url("../src/assets/image/imgi_31_col-5.png");
+  background-image: url("../assets/image/imgi_31_col-5.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -67,7 +67,7 @@
 }
 
 .bgimg7 {
-  background-image: url("../src/assets/image/imgi_143_wide-banner.png");
+  background-image: url("../assets/image/imgi_143_wide-banner.png");
   height: 400px;
   width: 100%;
   background-position: center;
@@ -76,7 +76,7 @@
 }
 
 .bgimg8 {
-  background-image: url("../src/assets/image/imgi_143_wide-banner.png");
+  background-image: url("../assets/image/imgi_143_wide-banner.png");
   height: 400px;
   width: 100%;
   background-position: center;
@@ -85,7 +85,7 @@
 }
 
 .bgimg9 {
-  background-image: url("../src/assets/image/imgi_143_wide-banner.png");
+  background-image: url("../assets/image/imgi_143_wide-banner.png");
   height: 400px;
   width: 100%;
   background-position: center;
@@ -94,7 +94,7 @@
 }
 
 .bgimg10 {
-  background-image: url("../src/assets/image/col-2.png");
+  background-image: url("../assets/image/col-2.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -17,7 +17,7 @@ export default function Shop() {
       name: "Athletic Pro",
       price: 120,
       image:
-        "../src/assets/image/imgi_49_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.jpg",
+        "../assets/image/imgi_49_product-1_831d6162-6f44-4896-ac4c-88eb8a35a6a9.jpg",
       category: "athletic",
       brand: "Nike",
       color: "Red",
@@ -31,7 +31,7 @@ export default function Shop() {
       name: "Winter Boots",
       price: 180,
       image:
-        "../src/assets/image/imgi_50_product-18_be1e3b54-5764-4f9d-b77d-f23718b8bd6f.jpg",
+        "../assets/image/imgi_50_product-18_be1e3b54-5764-4f9d-b77d-f23718b8bd6f.jpg",
       category: "boots",
       brand: "Timberland",
       color: "Brown",
@@ -45,7 +45,7 @@ export default function Shop() {
       name: "Luxury Oxford",
       price: 200,
       image:
-        "../src/assets/image/imgi_51_product-2_f21b4635-7aa2-414f-b44c-6ce8171394ed.jpg",
+        "../assets/image/imgi_51_product-2_f21b4635-7aa2-414f-b44c-6ce8171394ed.jpg",
       category: "luxury",
       brand: "Gucci",
       color: "Black",
@@ -58,7 +58,7 @@ export default function Shop() {
       id: 4,
       name: "Beach Sandals",
       price: 60,
-      image: "../src/assets/image/imgi_52_product-22.jpg",
+      image: "../assets/image/imgi_52_product-22.jpg",
       category: "sandals",
       brand: "Adidas",
       color: "Blue",
@@ -72,7 +72,7 @@ export default function Shop() {
       name: "Street Sneakers",
       price: 90,
       image:
-        "../src/assets/image/imgi_53_product-3_be4a38ab-621f-46d5-a126-3488687e10f6.jpg",
+        "../assets/image/imgi_53_product-3_be4a38ab-621f-46d5-a126-3488687e10f6.jpg",
       category: "sneakers",
       brand: "Puma",
       color: "White",
@@ -86,7 +86,7 @@ export default function Shop() {
       name: "Comfy Slides",
       price: 40,
       image:
-        "../src/assets/image/imgi_54_product-26_a72ab182-4323-4754-aa41-d64401571e17.jpg",
+        "../assets/image/imgi_54_product-26_a72ab182-4323-4754-aa41-d64401571e17.jpg",
       category: "sandals",
       brand: "Nike",
       color: "Black",
@@ -100,7 +100,7 @@ export default function Shop() {
       name: "Formal Derbys",
       price: 150,
       image:
-        "../src/assets/image/imgi_55_product-4_a9f5532a-47cd-4f32-8958-57ee765f0a27.jpg",
+        "../assets/image/imgi_55_product-4_a9f5532a-47cd-4f32-8958-57ee765f0a27.jpg",
       category: "luxury",
       brand: "Reebok",
       color: "Brown",
@@ -114,7 +114,7 @@ export default function Shop() {
       name: "Speed Runner",
       price: 110,
       image:
-        "../src/assets/image/imgi_56_product-19_323f61e6-cfd6-4407-823a-273f154d188c.jpg",
+        "../assets/image/imgi_56_product-19_323f61e6-cfd6-4407-823a-273f154d188c.jpg",
       category: "athletic",
       brand: "Adidas",
       color: "Green",
@@ -128,7 +128,7 @@ export default function Shop() {
       name: "Speed Runner",
       price: 110,
       image:
-        "../src/assets/image/imgi_56_product-19_323f61e6-cfd6-4407-823a-273f154d188c.jpg",
+        "../assets/image/imgi_56_product-19_323f61e6-cfd6-4407-823a-273f154d188c.jpg",
       category: "athletic",
       brand: "Adidas",
       color: "Green",
@@ -340,11 +340,11 @@ export default function Shop() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {/* Image Card */}
           {[
-            { src: "../src/assets/image/imgi_58_col-5.png", label: "Athletic Footwear" },
-            { src: "../src/assets/image/col-4.png", label: "Athletic Footwear" },
-            { src: "../src/assets/image/col-6.png", label: "Athletic Footwear" },
-            { src: "../src/assets/image/col-2.png", label: "Athletic Footwear" },
-            { src: "../src/assets/image/col-3.png", label: "Athletic Footwear" },
+            { src: "../assets/image/imgi_58_col-5.png", label: "Athletic Footwear" },
+            { src: "../assets/image/col-4.png", label: "Athletic Footwear" },
+            { src: "../assets/image/col-6.png", label: "Athletic Footwear" },
+            { src: "../assets/image/col-2.png", label: "Athletic Footwear" },
+            { src: "../assets/image/col-3.png", label: "Athletic Footwear" },
           ].map((item, idx) => (
             <div key={idx} className="group relative flex items-center justify-center overflow-hidden rounded-lg">
               {/* IMAGE */}

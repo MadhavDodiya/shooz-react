@@ -23,12 +23,12 @@ export default function Blog() {
           {/* Blog Posts */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              { img: "../src/assets/image/blog-2.png" },
-              { img: "../src/assets/image/blog-1.png" },
-              { img: "../src/assets/image/blog-6 (1).png" },
-              { img: "../src/assets/image/blog-5 (1).png" },
-              { img: "../src/assets/image/blog-4.png" },
-              { img: "../src/assets/image/blog-3.png" },
+              { img: "../assets/image/blog-2.png" },
+              { img: "../assets/image/blog-1.png" },
+              { img: "../assets/image/blog-6 (1).png" },
+              { img: "../assets/image/blog-5 (1).png" },
+              { img: "../assets/image/blog-4.png" },
+              { img: "../assets/image/blog-3.png" },
             ].map((blog, idx) => (
               <div key={idx} className="bg-white border rounded-lg overflow-hidden shadow-sm">
                 <img src={blog.img} alt="Blog" className="w-full h-64 md:h-72 object-cover" />
