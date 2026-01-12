@@ -35,7 +35,7 @@ const Footer = () => {
         {/* Brand */}
         <div>
           <h3 className="font-bold text-xl mb-4">
-            <img src="src/assets/image/logo.png" alt="Logo" className="h-10" />
+            <img src="../src/assets/image/logo.png" alt="Logo" className="h-10" />
           </h3>
           <p className="hover:text-pink-500 cursor-pointer">T: + (08) 9055 0269</p>
           <p className="mt-1">E: example@example.com</p>

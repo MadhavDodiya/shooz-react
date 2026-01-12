@@ -16,19 +16,19 @@ export default function Blog() {
               <button className="px-5 py-2 bg-red-700 hover:bg-black transition text-white rounded">Read More</button>
             </div>
             <div>
-              <img src="src/assets/image/blog-2.png" alt="Blog" className="w-full h-auto rounded-lg object-cover" />
+              <img src="../src/assets/image/blog-2.png" alt="Blog" className="w-full h-auto rounded-lg object-cover" />
             </div>
           </div>
 
           {/* Blog Posts */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              { img: "src/assets/image/blog-2.png" },
-              { img: "src/assets/image/blog-1.png" },
-              { img: "src/assets/image/blog-6 (1).png" },
-              { img: "src/assets/image/blog-5 (1).png" },
-              { img: "src/assets/image/blog-4.png" },
-              { img: "src/assets/image/blog-3.png" },
+              { img: "../src/assets/image/blog-2.png" },
+              { img: "../src/assets/image/blog-1.png" },
+              { img: "../src/assets/image/blog-6 (1).png" },
+              { img: "../src/assets/image/blog-5 (1).png" },
+              { img: "../src/assets/image/blog-4.png" },
+              { img: "../src/assets/image/blog-3.png" },
             ].map((blog, idx) => (
               <div key={idx} className="bg-white border rounded-lg overflow-hidden shadow-sm">
                 <img src={blog.img} alt="Blog" className="w-full h-64 md:h-72 object-cover" />
